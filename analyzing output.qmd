@@ -1,0 +1,67 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+---
+
+```{r}
+#| warning: false
+library(tidyverse)
+library(cowplot)
+library(kableExtra)
+theme_set(theme_cowplot())
+
+```   
+
+```{r}
+conwayField <- read.csv("Data/Exclosure_Final.csv")
+
+unique(conwayField$Site)
+
+allField <- read.csv("Data/JFSP_sitedata_compiled_v17.csv")
+
+bfField <- allField %>%
+  filter(burn == "BF") %>%
+  filter(site == 72 | site == 76 | site == 79 | site == 82 | site == 84 | site == 86)
+
+```
+
+
+
+
+```{r}
+
+db.conn <- DBI::dbConnect(RSQLite::SQLite(),
+                dbname= "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/output/output_noLP.sqlite")
+
+stand = tbl(db.conn, "stand")   %>% collect()
+reg = tbl(db.conn, "sapling")  %>% collect() 
+reg.det = tbl(db.conn, "saplingdetail")  %>% collect() 
+water = tbl(db.conn, "water") %>% collect()  
+
+```
+
+Processing regeneration to bind with stand
+```{r}
+reg.det=reg.det%>%mutate(ba=pi*((dbh/100)/2)^2)
+reg.det=reg.det%>%mutate(ba_all=ba*n_represented)
+reg.det.sum=reg.det%>%group_by(year,ru, species)%>%summarize(count_ha_sap=sum(n_represented),
+                                                             dbh_mean_sapling=weighted.mean(dbh,n_represented),
+                                                             height_mean_sapling=weighted.mean(height*100,n_represented),
+                                                             ba_sum_sapling=sum(ba_all))
+
+```
+
+Merging stand and regenration together to calculate total density.
+
+```{r}
+stand = stand %>% dplyr::select(-cohort_count_ha,-cohort_basal_area)
+stand.t=full_join(stand,reg.det.sum,by = c("ru","year","species"))
+```
+Read in the environment file to get stand id
+```{r}
+model.id=read.table("/workspace/Kate/iland/age growth exclosure/age growth modeling/model/gis/blitz_environment.txt",header=T)
+modelid=model.id %>% select("rid"=id, "site_name"=model.climate.tableName)
+stand.t=left_join(stand.t,modelid,by="rid")
+summary(as.factor(stand.t$site_name))
+```
