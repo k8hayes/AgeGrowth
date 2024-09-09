@@ -1,0 +1,47 @@
+---
+title: "tree init creation"
+author: "Winslow"
+date: "4/18/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(tidyverse)
+```
+
+```{r}
+site=read.table("F:/work/seedling_blitz/data/JFSP_sitedata_compiled_v17.txt",sep = "\t",header=T)
+site = site %>% unite("site.name", burn:site, sep = "_")
+str(site)
+site.small = site %>% filter(!is.na(Lat.N.))
+```
+generate the sheet
+```{r}
+site.small=site.small %>% mutate(id=1:n())
+sapinit1= site.small %>% select(id, site.name, type, BS.dens, PB.dens, TA.dens)
+sapinit.f=data.frame()
+for(i in levels(as.factor(c("Pico","Bene","Potr","Pima")))){
+  sapinit1$species=i
+  sapinit.f=rbind(sapinit.f,sapinit1)
+}
+sapinit.f = sapinit.f %>% slice(rep(1:n(), each = 20))
+ sapinit.f = sapinit.f %>% mutate(count = ifelse(species=='Bene',PB.dens*10000/20,
+                                                 ifelse(species=="Potr",TA.dens*10000/20,
+                                                        ifelse(species=="Pima",BS.dens*10000/20,155.5/20))),
+                                  height_from = round(ifelse(species!="Pico",runif(9000,0.01,0.02),runif(9000,0.01,0.02)), digits=3),
+                                  height_to = round(ifelse(species!="Pico",height_from + runif(9000,0.001,0.01),height_from + runif(9000,0.001,0.02)),digits=3),
+                                  age = 1)
+ 
+sapinit.f %>% filter(species=="Pico")
+sapinit.f =sapinit.f %>%select(id, species, count, height_from, height_to, age)
+sapinit.f =sapinit.f %>% filter(count!=0)
+summary(sapinit.f)
+write.table(sapinit.f, "F:/work/seedling_blitz/materials/init/blitz_init.txt",row.names = F,sep="\t")
+sapinit.f_nlp = sapinit.f %>% filter(species!="Pico")
+write.table(sapinit.f_nlp, "F:/work/seedling_blitz/materials/init/blitz_init_nLP.txt",row.names = F,sep="\t")
+
+```
+

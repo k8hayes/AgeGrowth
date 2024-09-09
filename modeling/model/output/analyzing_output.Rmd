@@ -1,0 +1,193 @@
+---
+title: "analyzing_output"
+author: "Winslow"
+date: "4/18/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(tidyverse)
+```
+# ```{r}
+# db.conn <- DBI::dbConnect(RSQLite::SQLite(), dbname="F:/work/seedling_blitz/model/output/output.sqlite")
+# production = tbl(db.conn, "production_month") %>% collect()
+#   DBI::dbDisconnect(db.conn)
+# summary(production)
+# production =production %>% filter(species=="Pico") %>% mutate(ref=utilizableRadiation_m2/radiation_m2)
+# ```
+Read in the produce a stand composition and regen dataset to check stand densities at the beginning and end of the simulation and then pair pare with the simulated carbon dataset
+```{r}
+db.conn <- DBI::dbConnect(RSQLite::SQLite(), dbname="/workspace/Kate/iland/age growth exclosure/age growth data/output_noLP.sqlite")
+stand = tbl(db.conn, "stand")   %>% collect()
+reg = tbl(db.conn, "sapling")  %>% collect() 
+reg.det = tbl(db.conn, "saplingdetail")  %>% collect() 
+water = tbl(db.conn, "water") %>% collect()  
+
+DBI::dbDisconnect(db.conn)
+summary(stand)
+```
+Processing regeneration to bind with stand
+```{r}
+reg.det=reg.det%>%mutate(ba=pi*((dbh/100)/2)^2)
+reg.det=reg.det%>%mutate(ba_all=ba*n_represented)
+reg.det.sum=reg.det%>%group_by(year,ru, species)%>%summarize(count_ha_sap=sum(n_represented),
+                                                             dbh_mean_sapling=weighted.mean(dbh,n_represented),
+                                                             height_mean_sapling=weighted.mean(height*100,n_represented),
+                                                             ba_sum_sapling=sum(ba_all))
+
+
+```
+
+Merging stand and regenration together to calculate total density.
+
+```{r}
+stand = stand %>% dplyr::select(-cohort_count_ha,-cohort_basal_area)
+stand.t=full_join(stand,reg.det.sum,by = c("ru","year","species"))
+```
+Read in the environment file to get stand id
+```{r}
+model.id=read.table("/workspace/Kate/iland/age growth exclosure/age growth modeling/model/gis/blitz_environment.txt",header=T)
+modelid=model.id %>% select("rid"=id, "site_name"=model.climate.tableName)
+stand.t=left_join(stand.t,modelid,by="rid")
+summary(as.factor(stand.t$site_name))
+stand.t.lp=stand.t %>% filter(species=="Pico")
+```
+
+Read in the data from 2015
+```{r}
+data=read.csv("/Volumes/FF_Lab/personal_storage/winslow_storage/Cary/my science/science/2022/boreal forest/lodgepolepine seedling blitz/seedling_blitz/data/xanthe/JFSP_LPine_2015_field.csv")
+data=data %>% filter(spp =="LP")
+ggplot(data, aes(x=HT_2015))+
+  geom_density(stat="count")
+
+trans.new=read.csv("/Volumes/FF_Lab/personal_storage/winslow_storage/Cary/my science/science/2022/boreal forest/lodgepolepine seedling blitz/seedling_blitz/data/xanthe/Transpl_forAnalyses_Biomass.csv")
+trans.new=trans.new %>% filter(spp=="LP")
+trans.new$block=trans.new$blk
+data.2 = left_join(data, trans.new, by = c("burn","site","block", "spp"))
+data.2=data.2 %>% unite('site_name',burn:site, sep="_" )
+summary(data.2)
+data.2=data.2 %>% mutate(biomass15.g = 10^biomass15)
+data.summary=data.2 %>% group_by(site_name) %>% summarize(mean.ht.cm.obs = mean(HT_2015,na.rm=T),
+                                                        mean.DBH.cm.obs = mean(DBH_2015,na.rm=T),
+                                                        mean.biomass.g.obs = sum(biomass15.g)/length(spp))
+
+summary(data.summary)
+
+```
+Link obs and model
+```{r}
+stand.t.lp = left_join(stand.t.lp,data.summary,by="site_name")
+stand.t.lp.sub = stand.t.lp %>% filter(!is.na(mean.ht.cm.obs))
+stand.t.lp.long=stand.t.lp.sub %>% pivot_longer(cols = c(mean.ht.cm.obs,height_mean_sapling), names_to = "form", values_to = "Height.cm")
+stand.t.lp.long = stand.t.lp.long %>% mutate(form = ifelse( form == "height_mean_sapling", "Simulated","Observed"))
+
+ht=ggplot(stand.t.lp.long, aes(x=form, y=Height.cm))+
+  geom_boxplot(fill="grey")+
+  theme_bw()+
+  theme(    text  = element_text(color="black",  family="sans", size=10),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(),
+             axis.text.x=element_text(colour="black",size=10),
+             axis.text.y=element_text(colour="black",size=10))+
+  labs(x="", y="Mean height (cm)")
+
+stand.t.lp.long2=stand.t.lp.sub %>% pivot_longer(cols = c(mean.DBH.cm.obs,dbh_mean_sapling), names_to = "form", values_to = "DBH.cm")
+stand.t.lp.long2 = stand.t.lp.long2 %>% mutate(form = ifelse( form == "dbh_mean_sapling", "Simulated","Observed"))
+stand.t.lp.long2 %>%group_by(form) %>% summarize(med.dbh = median(DBH.cm,na.rm=T))
+dbh=ggplot(stand.t.lp.long2, aes(x=form, y=DBH.cm))+
+  geom_boxplot(fill="grey")+
+  theme_bw()+
+  theme(    text  = element_text(color="black",  family="sans", size=10),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(),
+             axis.text.x=element_text(colour="black",size=10),
+             axis.text.y=element_text(colour="black",size=10))+
+  labs(x="", y="Mean DBH (cm)")
+cowplot::plot_grid(ht,dbh,nrow = 1,labels="AUTO",align="hv",label_fontfamily = "sans", label_size = 10)
+ggsave("Volumes/FF_Lab/personal_storage/winslow_storage/Cary/my science/science/2022/boreal forest/lodgepolepine seedling blitz/seedling_blitz/ms/figs/fig1.jpg", width=6.5,height=4,units="in",dpi=700)
+
+```
+Read in the produce a stand composition and regen dataset to check stand densities at the beginning and end of the simulation and then pair pare with the simulated carbon dataset
+```{r}
+tree.final=data.frame()
+carbon.final=data.frame()
+stand.final=data.frame()
+for(i in levels(as.factor(c("output","output_noLP")))){
+db.conn <- DBI::dbConnect(RSQLite::SQLite(), dbname=paste0("/Volumes/FF_Lab/personal_storage/winslow_storage/Cary/my science/science/2022/boreal forest/lodgepolepine seedling blitz/seedling_blitz/model/output/",i,".sqlite"))
+tree = tbl(db.conn, "tree")  %>% filter(year==100) %>% collect()
+tree$treatment=i
+stand = tbl(db.conn, "stand")  %>% filter(year==100) %>% collect()
+stand$treatment=i
+carbon=tbl(db.conn, "carbon") %>% filter(year==100) %>% collect()
+carbon$treatment=i
+  DBI::dbDisconnect(db.conn)
+tree.final=rbind(tree.final,tree)
+carbon.final=rbind(carbon.final,carbon)
+stand.final=rbind(stand.final,stand)
+}
+
+```
+
+Average tree size for ms text
+```{r}
+stand.final.subset=stand.final %>% filter(treatment=="output")
+stand.final.subset %>% group_by(species) %>% summarize(median.height= median(height_avg_m),
+                                                       median.dbh = median(dbh_avg_cm))
+```
+Biomass plots
+```{r}
+library(scales)
+my.cols=c("#377eb8","#4daf4a")
+tree.final=tree.final %>% mutate(treatment = ifelse(treatment == "output", "Lodgepole pine", "No lodgepole pine"),
+                                 species = as.factor(ifelse(species=="Bene", "Alaskan birch",
+                                                  ifelse(species=="Pico", "Lodgepole pine",
+                                                         ifelse(species == "Pima", "Black spruce",
+                                                                ifelse(species == "Potr","Trembling aspen","NA"))))))
+tree.final=tree.final %>% filter(species!="Lodgepole pine")
+levels(tree.final$species) <- gsub(" ", "\n", levels(tree.final$species))
+biomass=ggplot(tree.final, aes(x=as.factor(species), y=foliageMass+stemMass+branchMass, fill=as.factor(treatment)))+
+         geom_boxplot()+
+  scale_fill_manual(values = my.cols)+
+  theme_bw()+
+  scale_y_log10(label=comma)+
+  theme(    text  = element_text(color="black",  family="sans", size=10),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(),
+             axis.text.x=element_text(colour="black",size=10),
+             axis.text.y=element_text(colour="black",size=10),
+            legend.position = c(0.65,0.95),
+           legend.background=element_blank())+
+  labs(x="", y="Aboveground tree biomass (kg)", fill="")
+
+```
+carbon plots
+```{r}
+carbon.final = carbon.final %>% mutate(aboveground_C=stem_c+branch_c+foliage_c+regeneration_c,
+                                       belowground_C=litter_c + coarseRoot_c +fineRoot_c+downedWood_c)
+carbon.final = carbon.final %>% mutate(treatment = ifelse(treatment=="output", "Logepole pine","No Lodgepole pine"))
+
+carbon.final.long = carbon.final %>% pivot_longer(names_to = "Compartment", values_to = "Carbon", cols = c(aboveground_C:belowground_C))
+carbon.final.long = carbon.final.long %>% mutate(Compartment = as.factor(ifelse(Compartment=="aboveground_C", "Aboveground live","SOL roots downed wood")))
+levels(carbon.final.long$Compartment) <- gsub(" ", "\n", levels(carbon.final.long$Compartment))
+
+carbon=ggplot(carbon.final.long, aes(x=Compartment, y=Carbon, fill=treatment))+
+  geom_boxplot()+
+  scale_fill_manual(values = my.cols)+
+  theme_bw()+
+  scale_y_log10(label=comma)+
+  theme(    text  = element_text(color="black",  family="sans", size=10),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(),
+             axis.text.x=element_text(colour="black",size=10),
+             axis.text.y=element_text(colour="black",size=10),
+            legend.position = "",
+           legend.background=element_blank())+
+  labs(x="", y=bquote(Total~Carbon~(kg~ha^-1)),fill="")
+cowplot::plot_grid(biomass,carbon,nrow=1, align="hv", labels=c("(a)", "(b)"),label_fontfamily = "sans", label_size = 10)
+ggsave("/Volumes/FF_Lab/personal_storage/winslow_storage/Cary/my science/science/2022/boreal forest/lodgepolepine seedling blitz/seedling_blitz/ms/figs/fig4.pdf", width=6,height=4,units="in",dpi=700)
+
+
+```
