@@ -1,7 +1,7 @@
 ---
 title: "Downloading and processing climate data"
-author: "Winslow D Hansen"
-date: "August 16, 2018"
+author: K8
+date: 09/09/2024
 output: html_document
 ---
 
@@ -12,11 +12,16 @@ knitr::opts_chunk$set(echo = TRUE)
 First we clean up the batch list that will be read into DaymetR
 ```{r}
 library(tidyverse)
-t=read.table("F:/work/seedling_blitz/data/JFSP_sitedata_compiled_v17.txt",sep="\t",header=T)
+
+t=read.table("D:/workspace/Kate/AgeGrowth/modeling/data/JFSP_sitedata_compiled_v17.txt",sep="\t",header=T)
+
 t = t %>% unite("site.name", burn:site, sep = "_")
 t.small = t %>% dplyr::select(site.name, "latitude" = Lat.N., "longitude" = Lon.W.)
-t.small = t.small %>% filter(!is.na(latitude))
-write.table(t.small, "F:/work/seedling_blitz/materials/climate/init-sites-locations.csv",sep=",",row.names = F)
+t.small = t.small %>% 
+    filter(!is.na(latitude), 
+            site.name %in% c("BF_72", "BF_76", "BF_79", "BF_82", "BF_84"))
+
+write.table(t.small, "D:/workspace/Kate/AgeGrowth/modeling/materials/climate/init-sites-locations.csv",sep=",",row.names = F)
 summary(t.small)
 ```
 
@@ -26,28 +31,28 @@ Now we are going to start downloading daymet data for these locations.
 ```{r}
 getwd()
 library(daymetr)
-download_daymet_batch(file_location = 'init-sites-locations.csv',
+daymetr::download_daymet_batch(file_location = "D:/workspace/Kate/AgeGrowth/modeling/materials/climate/init-sites-locations.csv",
                       start = 1980,
-                      end = 2021,
+                      end = 2023,
                       internal = FALSE,
-                      path= "F:/work/seedling_blitz/materials/climate")
+                      silent = TRUE,
+                      path= "D:/workspace/Kate/AgeGrowth/modeling/materials/climate")
 
 
 ```
 Now read these in
 ```{r}
-master=read.csv("F:/work/seedling_blitz/materials/climate/init-sites-locations.csv", header=T)
+master=read.csv("D:/workspace/Kate/AgeGrowth/modeling/materials/climate/init-sites-locations.csv", header=T)
 
 master.clim=data.frame()
 master[1]  # I did this to confirm I knew that it was grabbing the first column. Indexing is hard for me.
 for(i in 1:dim(master)[1]){
   id=master$site.name[i]
-  dat=read.csv(paste0("F:/work/seedling_blitz/materials/climate/",id,"_1980_2021.csv"), header = T, sep = ",", skip = 7)
+  dat=read.csv(paste0("D:/workspace/Kate/AgeGrowth/modeling/materials/climate/",id,"_1980_2023.csv"), header = T, sep = ",", skip = 6)
   master.clim=rbind(master.clim, data.frame(id,dat))
 }
 summary(master.clim)
-summary(master.clim[master.clim$vp..Pa>1500,])  # looking at extremes
-summary(master.clim[master.clim$tmax..deg.c.>34,])
+
 ```
 The data has been read in from the raw daymet csv files and are now linked with an id from our specific sites. 
 Now we can start processing the data to get into a format the iLand can read.
@@ -116,7 +121,7 @@ library(RSQLite)
 str(master.clim)
 head(master.clim)  # order is id, year, month, day, min_temp, max_temp, prec, rad, vpd
 
-db.conn <<- dbConnect(RSQLite::SQLite(), dbname="lodgepole_blitz_climate.sqlite" )
+db.conn <<- dbConnect(RSQLite::SQLite(), dbname="agegrowth_climate.sqlite" )
 i
 for(i in levels(as.factor(master.clim$id)))  {
   dat=master.clim[master.clim$id==i,c(2,12,13,9,8,5,14,17)]
@@ -129,23 +134,3 @@ for(i in levels(as.factor(master.clim$id)))  {
 dbDisconnect(db.conn)
 head(dat)
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
