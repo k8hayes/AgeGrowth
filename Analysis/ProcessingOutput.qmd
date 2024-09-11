@@ -1,0 +1,361 @@
+---
+title: "AgeGrowth Modeling Output"
+format: html
+editor: visual
+---
+# Set up
+
+```{r}
+#| warning: false
+#| label: packages
+library(tidyverse)
+library(cowplot)
+library(kableExtra)
+library(terra)
+theme_set(theme_cowplot())
+
+```   
+
+# Processing no moose output
+
+```{r}
+env.grid = rast("D:/workspace/Kate/iland/materials/env/env.grid.tif")
+
+db.connNM <- DBI::dbConnect(RSQLite::SQLite(),
+                dbname= "D:/workspace/Kate/iland/model/output/out_NoMoose.sqlite")
+
+# fire files
+  # default fire output
+  fireNM = tbl(db.connNM, "fire") %>% collect()
+ 
+  # fire perimeter maps
+   fireMapNM = rast(list.files("D:/workspace/Kate/iland/model/output/crownkill/crownkill_nomoose/",full.names = T))
+
+  crs(fireMapNM) = crs(env.grid)
+```
+
+## filtering by fire severity
+```{r}
+burnedArea <- subst(fireMapNM, 0, NA, others = 1)
+
+ # split into list, turn list into SpatRaster Collection
+  burnedSPC <- terra::sprc(split(burnedArea,
+                              1:nlyr(burnedArea))) 
+  # ^ lets you merge values across layers
+  nfire <- terra::mosaic(burnedSPC, fun = "sum")
+   
+  burn1x <- terra::subst(nfire, 1, 1, others = NA)
+  
+  burn1xRID <- as.data.frame(mask(env.grid, burn1x))
+
+  NM1xRID <- burn1xRID %>% rename("rid" = env.grid)
+
+fireYrId <- data.frame()
+
+for (i in 1:nrow(fireNM)) {
+  
+  # Skip fires that burned nothing
+  if (fireNM$area_m2[i] > 0) {
+    
+    # Take the fire map for this fire, and make everything but the fire cells NA
+    mask <- fireMapNM[[paste0("crownkill_", fireNM$fireId[i], "_", fireNM$year[i])]]
+    mask = ifel(mask==0, NA,mask)
+    
+    # Use the mask to extract the rids for burned grids
+    burned_rids <- as.data.frame(mask(env.grid, mask))
+    
+  burned_rids= burned_rids%>%filter(!is.na(env.grid))
+  burned_rids$fireYr=fireNM$year[i]
+  burned_rids$fireId=fireNM$fireId[i]
+  }
+  fireYrId = rbind(fireYrId,burned_rids)
+}
+
+rm(burned_rids, i, mask)
+
+fireYrId = fireYrId%>% rename("rid" = env.grid)
+
+# pull only the RIDs that burn 1x
+fireYrId <- fireYrId %>%
+  filter(rid %in% NM1xRID$rid)
+
+NM1xRID <- left_join(NM1xRID, fireYrId, by = join_by(rid))
+
+kable(head(NM1xRID))
+
+rm(burnedArea, burnedSPC, burn1x, burn1xRID,
+   nfire, fireYrId, fireNM, fireMapNM)
+```
+
+```{r}
+standNM <- tbl(db.connNM, "stand") %>%
+  filter(rid %in% NM1xRID$rid) %>% 
+  collect() %>%
+  mutate(cohort_id = paste(rid, species)) %>%
+  left_join(NM1xRID, by = "rid") %>%
+  mutate(TSF = year - fireYr)
+
+prefireStand <- standNM %>%
+  filter(TSF == -1, # only TSF from year before fire
+         count_ha > 0, # only cells with biomass b4 fire
+         NPP_kg > 0, 
+         cohort_count_ha > 0, 
+         cohort_basal_area > 0) %>%
+  distinct(rid, .keep_all = TRUE) # find unique rids
+
+postfireStand <- standNM %>%
+  filter(TSF == 1, 
+         count_ha == 0, 
+         height_avg_m == 0) %>%
+  distinct(rid, .keep_all = TRUE)
+
+fireStand <- standNM %>%
+  filter(TSF == 0, height_avg_m == 0) %>%
+  distinct(rid, .keep_all = TRUE)
+
+RID <- postfireStand %>%
+  filter(rid %in% prefireStand$rid, rid %in% fireStand$rid) %>%
+  pull(rid) %>%
+  unique()
+
+standNMhs <- standNM %>%
+  filter(rid %in% RID,
+         cohort_id %in% postfireStand$cohort_id,
+         TSF > 0,
+         count_ha > 0) 
+
+rm(prefireStand, postfireStand, fireStand, RID)
+```
+
+```{r}
+#| warning: false
+#| label: load in saplings 
+# load in saplings
+
+saplingdetNM = tbl(db.connNM, "saplingdetail")  %>%
+  filter(rid %in% standNMhs$rid) %>% # only from rid with HS fires
+  collect()
+    
+  # joining fireID 
+  saplingdetNMhs <- left_join(saplingdetNM,
+                            NM1xRID, 
+                           by = join_by(rid))
+  
+  # Time Since Fire
+saplingdetNMhs = saplingdetNMhs %>%
+  mutate(TSF = year - fireYr) %>%
+  filter(TSF >= 0) %>% # only positive TSF
+  filter(age < TSF) # only stands younger than TSF
+```
+
+## merging stand and sapling
+```{r}
+
+# | label: merging stand and sapling NM
+standNM <- standNMhs %>%
+  select(c(year, ru, rid, species, 
+           height_avg_m, dbh_avg_cm, basal_area_m2,TSF)) %>%
+  mutate(Stage = "stand")
+
+saplingNM <- saplingdetNMhs %>%
+  mutate(ba=pi*((dbh/100)/2)^2) %>%
+  mutate(ba_all=ba*n_represented) %>%
+  group_by(rid, ru, age,year, TSF, species) %>%
+  summarize(count_ha = sum(n_represented),
+            dbh_avg_cm = weighted.mean(dbh,n_represented),
+            basal_area_m2 = sum(ba_all),
+            height_avg_m = weighted.mean(height*100,n_represented),
+            age_avg = mean(age)) %>%
+  select(c(year, ru, rid, species, 
+           height_avg_m, dbh_avg_cm, basal_area_m2, TSF, age_avg)) %>%
+  mutate(Stage = "sapling")
+
+modelNM <- full_join(standNM, saplingNM)
+```
+
+```{r}
+modelNM = modelNM %>%
+  group_by(TSF, species) %>%
+  summarise(height = mean(height_avg_m),
+        dbh = mean(dbh_avg_cm),
+        basal = mean(basal_area_m2),
+        # standard deviations
+        height_sd = sd(height_avg_m, na.rm = TRUE),
+        dbh_sd = sd(dbh_avg_cm, na.rm = TRUE),
+        basal_sd = sd(basal_area_m2, na.rm = TRUE)) %>%
+  mutate(Scenario = "Exclosure")
+
+write.csv(modelNM, "Data/Model Output/NoMoose.csv", row.names = FALSE)
+```
+
+# Processing moose output
+
+```{r}
+env.grid = rast("D:/workspace/Kate/iland/materials/env/env.grid.tif")
+
+db.connM <- DBI::dbConnect(RSQLite::SQLite(),
+                dbname= "D:/workspace/Kate/iland/model/output/out_Moose.sqlite")
+
+# fire files
+  # default fire output
+  fireM = tbl(db.connM, "fire") %>% collect()
+ 
+  # fire perimeter maps
+   fireMapM = rast(list.files("D:/workspace/Kate/iland/model/output/crownkill/crownkill_moose/",full.names = T))
+
+  crs(fireMapM) = crs(env.grid)
+```
+
+## filtering by fire severity
+```{r}
+burnedArea <- subst(fireMapM, 0, NA, others = 1)
+
+ # split into list, turn list into SpatRaster Collection
+  burnedSPC <- terra::sprc(split(burnedArea,
+                              1:nlyr(burnedArea))) 
+  # ^ lets you merge values across layers
+  nfire <- terra::mosaic(burnedSPC, fun = "sum")
+   
+  burn1x <- terra::subst(nfire, 1, 1, others = NA)
+  
+  burn1xRID <- as.data.frame(mask(env.grid, burn1x))
+
+ M1xRID <- burn1xRID %>% rename("rid" = env.grid)
+
+fireYrId <- data.frame()
+
+for (i in 1:nrow(fireM)) {
+  
+  # Skip fires that burned nothing
+  if (fireM$area_m2[i] > 0) {
+    
+    # Take the fire map for this fire, and make everything but the fire cells NA
+    mask <- fireMapM[[paste0("crownkill_", fireM$fireId[i], "_", fireM$year[i])]]
+    mask = ifel(mask==0, NA,mask)
+    
+    # Use the mask to extract the rids for burned grids
+    burned_rids <- as.data.frame(mask(env.grid, mask))
+    
+  burned_rids= burned_rids%>%filter(!is.na(env.grid))
+  burned_rids$fireYr=fireM$year[i]
+  burned_rids$fireId=fireM$fireId[i]
+  }
+  fireYrId = rbind(fireYrId,burned_rids)
+}
+
+rm(burned_rids, i, mask)
+
+fireYrId = fireYrId%>% rename("rid" = env.grid)
+
+# pull only the RIDs that burn 1x
+fireYrId <- fireYrId %>%
+  filter(rid %in% M1xRID$rid)
+
+M1xRID <- left_join(M1xRID, fireYrId, by = join_by(rid))
+
+kable(head(M1xRID))
+
+rm(burnedArea, burnedSPC, burn1x, burn1xRID,
+   nfire, fireYrId, fireM, fireMapM)
+```
+
+```{r}
+standM <- tbl(db.connM, "stand") %>%
+  filter(rid %in% M1xRID$rid) %>% 
+  collect() %>%
+  mutate(cohort_id = paste(rid, species)) %>%
+  left_join(M1xRID, by = "rid") %>%
+  mutate(TSF = year - fireYr)
+
+prefireStand <- standM %>%
+  filter(TSF == -1, # only TSF from year before fire
+         count_ha > 0, # only cells with biomass b4 fire
+         NPP_kg > 0, 
+         cohort_count_ha > 0, 
+         cohort_basal_area > 0) %>%
+  distinct(rid, .keep_all = TRUE) # find unique rids
+
+postfireStand <- standM %>%
+  filter(TSF == 1, 
+         count_ha == 0, 
+         height_avg_m == 0) %>%
+  distinct(rid, .keep_all = TRUE)
+
+fireStand <- standM %>%
+  filter(TSF == 0, height_avg_m == 0) %>%
+  distinct(rid, .keep_all = TRUE)
+
+RID <- postfireStand %>%
+  filter(rid %in% prefireStand$rid, rid %in% fireStand$rid) %>%
+  pull(rid) %>%
+  unique()
+
+standMhs <- standM %>%
+  filter(rid %in% RID,
+         cohort_id %in% postfireStand$cohort_id,
+         TSF > 0,
+         count_ha > 0) 
+
+rm(prefireStand, postfireStand, fireStand, RID)
+```
+
+```{r}
+#| warning: false
+#| label: load in saplings 
+# load in saplings
+
+saplingdetM = tbl(db.connM, "saplingdetail")  %>%
+  filter(rid %in% standMhs$rid) %>% # only from rid with HS fires
+  collect()
+    
+  # joining fireID 
+  saplingdetMhs <- left_join(saplingdetM,
+                            M1xRID, 
+                           by = join_by(rid))
+  
+  # Time Since Fire
+saplingdetMhs = saplingdetMhs %>%
+  mutate(TSF = year - fireYr) %>%
+  filter(TSF >= 0) %>% # only positive TSF
+  filter(age < TSF) # only stands younger than TSF
+```
+
+## merging stand and sapling
+```{r}
+
+# | label: merging stand and sapling NM
+standM <- standMhs %>%
+  select(c(year, ru, rid, species, 
+           height_avg_m, dbh_avg_cm, basal_area_m2,TSF)) %>%
+  mutate(Stage = "stand")
+
+saplingM <- saplingdetMhs %>%
+  mutate(ba=pi*((dbh/100)/2)^2) %>%
+  mutate(ba_all=ba*n_represented) %>%
+  group_by(rid, ru, age,year, TSF, species) %>%
+  summarize(count_ha = sum(n_represented),
+            dbh_avg_cm = weighted.mean(dbh,n_represented),
+            basal_area_m2 = sum(ba_all),
+            height_avg_m = weighted.mean(height*100,n_represented),
+            age_avg = mean(age)) %>%
+  select(c(year, ru, rid, species, 
+           height_avg_m, dbh_avg_cm, basal_area_m2, TSF, age_avg)) %>%
+  mutate(Stage = "sapling")
+
+modelM <- full_join(standM, saplingM)
+```
+
+```{r}
+modelM = modelM %>%
+  group_by(TSF, species) %>%
+  summarise(height = mean(height_avg_m),
+        dbh = mean(dbh_avg_cm),
+        basal = mean(basal_area_m2),
+        # standard deviations
+        height_sd = sd(height_avg_m, na.rm = TRUE),
+        dbh_sd = sd(dbh_avg_cm, na.rm = TRUE),
+        basal_sd = sd(basal_area_m2, na.rm = TRUE)) %>%
+  mutate(Scenario = "Control")
+
+write.csv(modelM, "Data/Model Output/NoMoose.csv", row.names = FALSE)
+```
