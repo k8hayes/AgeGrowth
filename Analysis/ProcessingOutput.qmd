@@ -191,8 +191,6 @@ write.csv(modelNM, "Data/Model Output/NoMoose.csv", row.names = FALSE)
 # Processing moose output
 
 ```{r}
-env.grid = rast("D:/workspace/Kate/iland/materials/env/env.grid.tif")
-
 db.connM <- DBI::dbConnect(RSQLite::SQLite(),
                 dbname= "D:/workspace/Kate/iland/model/output/out_Moose.sqlite")
 
@@ -357,5 +355,5 @@ modelM = modelM %>%
         basal_sd = sd(basal_area_m2, na.rm = TRUE)) %>%
   mutate(Scenario = "Control")
 
-write.csv(modelM, "Data/Model Output/NoMoose.csv", row.names = FALSE)
+write.csv(modelM, "Data/Model Output/Moose.csv", row.names = FALSE)
 ```
