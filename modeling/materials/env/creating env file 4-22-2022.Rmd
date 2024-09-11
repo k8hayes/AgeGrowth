@@ -1,0 +1,104 @@
+---
+title: "gen_env_file"
+author: "Winslow"
+date: "4/18/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(terra)
+library(tidyverse)
+library(sf)
+
+#id=read.table("F:/work/seedling_blitz/materials/climate/init-sites-locations.csv",header=T,sep=",")
+
+id = bfField
+
+depth=rast("//10.60.2.10/FF_Lab/personal_storage/winslow_storage/post doc 2018-2020/Alaska fire modeling/Alaska_rawdata/data/soil_grids/BDRICM_M_250m_ll.tif")
+clay.mean=rast("//10.60.2.10/FF_Lab/personal_storage/winslow_storage/post doc 2018-2020/Alaska fire modeling/Alaska_rawdata/data/soil_grids/clay.processed_mean.tif")
+sand.mean=rast("//10.60.2.10/FF_Lab/personal_storage/winslow_storage/post doc 2018-2020/Alaska fire modeling/Alaska_rawdata/data/soil_grids/sand.processed_mean.tif")
+silt.mean=rast("//10.60.2.10/FF_Lab/personal_storage/winslow_storage/post doc 2018-2020/Alaska fire modeling/Alaska_rawdata/data/soil_grids/silt.processed_mean.tif")
+
+```
+
+read in soils and create averages by depth
+```{r}
+# var="silt"
+# process.soil=function(var){
+# data=rast(paste0("//10.60.2.10/FF_Lab/personal_storage/winslow_storage/post doc 2018-2020/Alaska fire modeling/Alaska_rawdata/data/soil_grids/",var,".processed_1.tif"))
+# testfun <- function(i) { i/1000*100 }
+# for(i in 2:6){
+#   d=rast(paste0("//10.60.2.10/FF_Lab/personal_storage/winslow_storage/post doc 2018-2020/Alaska fire modeling/Alaska_rawdata/data/soil_grids/",var,".processed_",i,".tif"))
+#   add(data)=d
+# }
+# data2=app(data, fun=testfun, cores=6)
+# data.mean=app(data2, fun=mean,cores=4 )
+# return(data.mean)
+# }
+# clay.mean = process.soil("clay")
+# sand.mean = data.mean
+# silt.mean = data.mean
+# data
+# writeRaster(data.mean, "//10.60.2.10/FF_Lab/personal_storage/winslow_storage/post doc 2018-2020/Alaska fire modeling/Alaska_rawdata/data/soil_grids/silt.processed_mean.tif")
+```
+
+```{r}
+points = data.frame(cbind("longitude"=bfField$Lon.W.,"latitude" =bfField$Lat.N.))
+
+data=data.frame(id, "clay"=terra::extract(clay.mean, points),"sand" = terra::extract(sand.mean, points) ,"silt" = terra::extract(silt.mean, points),"depth"=terra::extract(depth, points))
+
+data = data %>% unite("site.name", burn:site, sep = "_")
+
+```
+
+```{r}
+x=c(0:8)  #9 RUs in x
+y=c(0:9)  #1. RUs in y
+
+id=matrix(1:90,ncol=9,byrow=T)
+id
+id2=apply(t(id),1,rev)
+id2
+write.table(id2,file="F:/work/seedling_blitz/materials/env/blitz_grid.txt",col.names=T,row.names=F,quote=F)
+
+```
+Write out the env file
+
+```{r}
+site=read.table("/workspace/Kate/AgeGrowth/Data/JFSP_sitedata_compiled_v17.csv",sep = ",",header=T)
+site = site %>% unite("site.name", burn:site, sep = "_")
+site.small = site %>% dplyr::select(site.name, "latitude" = Lat.N., "longitude" = Lon.W., "sol"=Resid.org)
+site.small = site.small %>% filter(!is.na(latitude))
+site.small2=left_join(site.small, data, by="site.name")
+xi=rep(x,length(y))
+xi
+yi=c(rep(0,length(x)),rep(1,length(x)),rep(2,length(x)),rep(3,length(x)),rep(4,length(x)),
+     rep(5,length(x)),rep(6,length(x)),rep(7,length(x)),rep(8,length(x)),rep(9,length(x)))
+yi
+env_ak=data.frame()
+for(i in 1:dim(site.small2)[1]){
+  env_ak=rbind(env_ak,data.frame(
+    id=i,
+    x=xi[i],
+    y=yi[i],
+    model.climate.tableName= site.small$site.name[i],
+    model.site.availableNitrogen=45, #35  Nitrogen was roughly calculated to match Melvin et al. 2015 Figure 5. I took the total N pool in the organic layer and mineral layer, multiplied by 10,0000 and divided by 100,000
+    model.site.soilDepth=round(site.small2$depth.BDRICM_M_250m_ll[i],0),
+    model.site.pctSand=round(site.small2$sand.mean[i],0),
+    model.site.pctSilt=round(site.small2$silt.mean[i],0),
+    model.site.pctClay=round(site.small2$clay.mean[i],0),
+    model.settings.permafrost.organicLayerDefaultDepth=site.small2$sol[i]*0.8/100,
+    model.settings.permafrost.moss.biomass = site.small2$sol[i]*0.2*0.31))
+  }
+
+env_ak
+env_ak=env_ak%>%mutate(total=model.site.pctSand+model.site.pctSilt+model.site.pctClay)
+env_ak=env_ak%>%mutate(model.site.pctSilt=ifelse(total==101,model.site.pctSilt-1,model.site.pctSilt))
+env_ak=env_ak%>%mutate(model.site.pctSilt=ifelse(total==99,model.site.pctSilt+1,model.site.pctSilt))
+summary(env_ak)
+env_ak$total=NULL
+write.table(env_ak, "F:/work/seedling_blitz/materials/env/blitz_environment.txt", col.names=T,row.names=F,quote=F)
+```

@@ -1,0 +1,136 @@
+---
+title: "Downloading and processing climate data"
+author: K8
+date: 09/09/2024
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+First we clean up the batch list that will be read into DaymetR
+```{r}
+library(tidyverse)
+
+t=read.table("D:/workspace/Kate/AgeGrowth/modeling/data/JFSP_sitedata_compiled_v17.txt",sep="\t",header=T)
+
+t = t %>% unite("site.name", burn:site, sep = "_")
+t.small = t %>% dplyr::select(site.name, "latitude" = Lat.N., "longitude" = Lon.W.)
+t.small = t.small %>% 
+    filter(!is.na(latitude), 
+            site.name %in% c("BF_72", "BF_76", "BF_79", "BF_82", "BF_84"))
+
+write.table(t.small, "D:/workspace/Kate/AgeGrowth/modeling/materials/climate/init-sites-locations.csv",sep=",",row.names = F)
+summary(t.small)
+```
+
+
+Now we are going to start downloading daymet data for these locations.  
+
+```{r}
+getwd()
+library(daymetr)
+daymetr::download_daymet_batch(file_location = "D:/workspace/Kate/AgeGrowth/modeling/materials/climate/init-sites-locations.csv",
+                      start = 1980,
+                      end = 2023,
+                      internal = FALSE,
+                      silent = TRUE,
+                      path= "D:/workspace/Kate/AgeGrowth/modeling/materials/climate")
+
+
+```
+Now read these in
+```{r}
+master=read.csv("D:/workspace/Kate/AgeGrowth/modeling/materials/climate/init-sites-locations.csv", header=T)
+
+master.clim=data.frame()
+master[1]  # I did this to confirm I knew that it was grabbing the first column. Indexing is hard for me.
+for(i in 1:dim(master)[1]){
+  id=master$site.name[i]
+  dat=read.csv(paste0("D:/workspace/Kate/AgeGrowth/modeling/materials/climate/",id,"_1980_2023.csv"), header = T, sep = ",", skip = 6)
+  master.clim=rbind(master.clim, data.frame(id,dat))
+}
+summary(master.clim)
+
+```
+The data has been read in from the raw daymet csv files and are now linked with an id from our specific sites. 
+Now we can start processing the data to get into a format the iLand can read.
+
+```{r}
+# days and months
+library(lubridate)
+master.clim=master.clim%>%mutate(Date= yday + as.Date ("1980-01-01"))
+master.clim$month=month(master.clim$Date)
+master.clim$day=day(master.clim$Date)
+
+master.clim[55:65,] # looking good
+master.clim[360:370,] # looking good here too
+
+```
+Now we calculate daily radiation sum and vpd in KPA
+
+
+```{r}
+master.clim$rad=master.clim$srad..W.m.2.*master.clim$dayl..s./1000000 # in MJ/m?/day
+summary(master.clim) # looks reasonable, albeit the max values are quite high
+summary(master.clim[master.clim$rad>30,])
+
+master.clim$vp..Pa.=master.clim$vp..Pa./1000
+master.clim$vp = master.clim$vp..Pa.  # save original value
+
+# ref for tetens formula based on temp
+# Murray, F.W. 1967. On the computation of saturation vapour pressure. J. Applied Meteorology 6: 203-204. https://doi.org/10.1175/1520-0450(1967)006%3C0203:OTCOSV%3E2.0.CO;2
+# also incorporated conversion from mb to kpa by dividing a in Murray's equation
+# (6.1078) by 10
+
+calc_es = function(temp) {
+  es = ifelse(temp < 0,
+              0.61078 * exp((21.875 * temp) / (temp + 265.5)),  
+              0.61078 * exp((17.269 * temp) / (temp + 237.3)))  
+  return(es)  
+}
+
+# to calc avg daily vpd, following FAO guidelines for meteorological data
+# www.fao.org/docrep/X0490E/x0490e07.htm
+calc_vpd = function(min_temp, max_temp, vp) {  # temp in C
+  # first calc sat vapor pressure at min and max temp
+  es_min = calc_es(min_temp)
+  es_max = calc_es(max_temp)
+  
+  # average value
+  es = (es_min + es_max) / 2
+  
+  # vpd is difference between sap vp and vp
+  vpd = es - vp
+  
+  return(vpd)
+}
+
+# replace vp..Pa. with vpd, for consistently with rest of script
+# setting 0 as minimum value
+master.clim$vpd_calc = calc_vpd(master.clim$tmin..deg.c., master.clim$tmax..deg.c., master.clim$vp)
+master.clim$vpd = round(ifelse(master.clim$vpd_calc > 0, master.clim$vpd_calc, 0),digits=2)
+summary(master.clim)
+master.clim$rad=round(master.clim$rad,digits=2)
+```
+Finally, we are going to loadup the data base with the right climate variables in the right order.
+
+```{r}
+library(RSQLite)
+str(master.clim)
+head(master.clim)  # order is id, year, month, day, min_temp, max_temp, prec, rad, vpd
+
+db.conn <<- dbConnect(RSQLite::SQLite(), dbname="agegrowth_climate.sqlite" )
+i
+for(i in levels(as.factor(master.clim$id)))  {
+  dat=master.clim[master.clim$id==i,c(2,12,13,9,8,5,14,17)]
+  names(dat)[4]="min_temp"
+  names(dat)[5]="max_temp"
+  names(dat)[6]="prec"
+  names(dat)[8]="vpd"
+  dbWriteTable(db.conn, name=paste(i),dat,row.names=F,overwrite=T)
+}
+dbDisconnect(db.conn)
+head(dat)
+```

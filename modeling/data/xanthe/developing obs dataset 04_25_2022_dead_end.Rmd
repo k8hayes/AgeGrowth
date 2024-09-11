@@ -1,0 +1,99 @@
+---
+title: "cleaning up observation data"
+author: "Winslow"
+date: "4/25/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+libraries
+```{r}
+library(tidyverse)
+```
+```{r}
+trans=read.csv("F:/work/seedling_blitz/data/xanthe/JFSP_transpl_2006_2011.csv")
+trans.new=read.csv("F:/work/seedling_blitz/data/xanthe/Transpl_forAnalyses_Biomass.csv")
+```
+Edit
+```{r}
+trans=select(trans, burn, site, blk, spp, orgdep, health05, live06, herb06, health08, hbro08, leafm08, db08, brok08, aph08, live11, wttot11)
+
+trans=left_join(trans, trans.new, by=c("burn", "site", "blk", "spp"))
+
+trans$spp=as.factor(trans$spp)
+trans$wttot11 = as.numeric(trans$wttot11)
+#keep measured biomass and fill inwith the modelled
+trans= mutate(trans, biomass11=ifelse(is.na(wttot11), biomass11, log(wttot11)))
+summary(trans)
+
+#subset to only look at LP data
+LP_trans=subset(trans, spp=="LP")
+
+
+#make a herbivore exclosure variable
+LP_trans=mutate(LP_trans, herb=ifelse(blk=="2"|blk=="4"|blk=="6"|blk=="8"|blk=="10"|blk=="12"|blk=="14", "none", "exclosure"))
+
+###read in enviro data
+site=read.csv("JFSP_Env_IntSites.csv")
+
+#merge site and transect data
+LP_site=full_join(site, LP_trans, by=c("burn", "site"))
+LP_site$moist.class=as.factor(LP_site$moist.class)
+LP_site$wttot11=as.numeric(LP_site$wttot11)
+
+
+# create "survived" variable based on 2011
+LP_site=mutate(LP_site, survived=ifelse(live06==1&live11==1, 1, 
+                           ifelse(live06==0, 0, 
+                                  ifelse(live06==1&live11==0, 0, NA))))
+
+
+
+```
+
+```{r}
+##climate data
+clim=read.csv("site_climate.csv")
+LP_site_clim=merge(LP_site, clim, by=c("burn", "site"))
+#### 2015 LP data
+LP15=read.csv("JFSP_LPine_2015_field.csv")
+
+
+LP15=select(LP15, burn, site, block, DFoliage_13, DFoliage_15, ConesF_15, ConesM_15, Herbivory_15, Dieback_15, BD_2015,Harves1_15, StatePrior)
+all.data=LP_site_clim
+all.data$block=all.data$blk
+all.data=merge(all.data, LP15, by=c("burn", "site", "block"), all=TRUE)
+
+
+
+all.data=mutate(all.data, live15=ifelse(is.na(BD_2015), 0, 1)) 
+                                            
+                                            
+all.data=mutate(all.data, survived15=ifelse(live11==1&live15==0&StatePrior=="harvested", NA, 
+                                           ifelse(live11==1&live15==0&!StatePrior=="harvested", 0, 
+                                           ifelse(live11==0, NA,
+                                                  ifelse(live11==1&live15==1, 1, NA)))))
+
+
+check1=select(all.data, burn, site, blk, spp, live11, live15, BD_2015,Harves1_15, StatePrior, survived15)
+
+
+all.data=mutate(all.data, Dieback_15_new=ifelse(is.na(Dieback_15)&BD_2015>0, 0, 
+                                                ifelse(!is.na(Dieback_15), Dieback_15, NA)))
+
+all.data=mutate(all.data, DFoliage_15_new=ifelse(is.na(DFoliage_15)&BD_2015>0, 0, 
+                                                ifelse(!is.na(DFoliage_15), DFoliage_15, NA)))
+
+all.data=mutate(all.data, ConesF_15_new=ifelse(is.na(ConesF_15)&BD_2015>0, 0, 
+                                                ifelse(!is.na(ConesF_15), ConesF_15, NA)))
+
+all.data=mutate(all.data, ConesM_15_new=ifelse(is.na(ConesM_15)&BD_2015>0, 0, 
+                                                ifelse(!is.na(ConesM_15), ConesM_15, NA)))
+
+all.data=mutate(all.data, Herbivory_15_new=ifelse(is.na(Herbivory_15)&BD_2015>0, 0, 
+                                                ifelse(!is.na(Herbivory_15), Herbivory_15, NA)))
+summary(all.data)
+```

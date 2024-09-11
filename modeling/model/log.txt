@@ -1,0 +1,2347 @@
+17:08:25:712: **************************************************
+17:08:25:712: project-file: "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/ageGrowth_project_file.xml"
+17:08:25:712: started at:  "2024/08/27 17:08:25"
+17:08:25:712: iLand  2.0  ( "branch: main, version: aa9cf570, date: 18.07.2024" )
+17:08:25:712: **************************************************
+17:08:25:712: "extended debug checks disabled."
+17:08:25:712: current File Paths:
+17:08:25:712: "temp" :  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp"
+17:08:25:712: "database" :  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/databases"
+17:08:25:712: "output" :  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/output"
+17:08:25:712: "home" :  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model"
+17:08:25:712: "lip" :  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/lip"
+17:08:25:712: "exe" :  "C:/Program Files/iLandv2"
+17:08:25:712: "init" :  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/init"
+17:08:25:712: "log" :  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model"
+17:08:25:712: "script" :  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/scripts"
+17:08:25:712: Warning: xml: node "system.javascript.fileName" is not present.
+17:08:25:712: setup database connection "in" to "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/databases/species_param.sqlite"
+17:08:25:712: setup database connection "climate" to "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/databases/lodgepole_blitz_climate.sqlite"
+17:08:25:712: Warning: xml: node "model.climate.microclimate.enabled" is not present.
+17:08:25:712: Warning: xml: node "system.settings.responsive" is not present.
+17:08:25:727: The linearization of expressions is enabled (performance optimization).
+17:08:25:727: Loglevel set to Warning.
+17:08:25:727: "fire"
+17:08:25:727: "wind"
+17:08:25:727: "barkbeetle"
+17:08:25:727: "setup of the world: 900x1000m with cell-size=2m and 200m buffer"
+17:08:25:727: setup grid rectangle: QRectF(-200,-200 1300x1400)
+17:08:25:727: setup of spatial location: x/y/z 0 0 0 rotation: 0
+17:08:25:727: loading stamp file "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/lip/readerstamp.bin"
+17:08:25:727: attempting to load a species set from "species"
+17:08:25:727: loading stamp file "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/lip/pima.bin"
+17:08:25:727: loading stamp file "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/lip/pigl.bin"
+17:08:25:743: loading stamp file "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/lip/bene.bin"
+17:08:25:759: loading stamp file "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/lip/potr.bin"
+17:08:25:774: loading stamp file "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/lip/pico.bin"
+17:08:25:790: loaded 5 active species:
+17:08:25:790: index, id, name
+17:08:25:790: 0 "Pima" "Picea mariana"
+17:08:25:790: 1 "Pigl" "Picea glauca"
+17:08:25:790: 2 "Bene" "Betula neoalaskana"
+17:08:25:790: 3 "Potr" "Populus tremuloides"
+17:08:25:790: 4 "Pico" "Pinus contorta (ser)"
+17:08:25:790: Environment: climate: # of climate tables in environment file: 90
+17:08:25:790: Climate: Random sampling enabled (without a fixed list).
+17:08:25:790: adding climate table where-clause: "where  year<2016 and year>2004 "
+17:08:25:790: Warning: xml: node "co2pathway" is not present.
+17:08:25:790: Warning: xml: node "co2startYear" is not present.
+17:08:25:790: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:790: Warning: xml: node "model.settings.groundVegetationLAI" is not present.
+17:08:25:790: Warning: xml: node "model.settings.groundVegetationPsiMin" is not present.
+17:08:25:790: Setup Permafrost: RID  1 ": VWCsat: 0.45253, Kdry: 0.203244, Ksat: 2.18042, Kice: 4.0912. (rho_soil: 1478.17)"
+17:08:25:790: Warning: xml: node "co2pathway" is not present.
+17:08:25:790: Warning: xml: node "co2startYear" is not present.
+17:08:25:790: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:790: Warning: xml: node "model.settings.groundVegetationLAI" is not present.
+17:08:25:790: Warning: xml: node "model.settings.groundVegetationPsiMin" is not present.
+17:08:25:790: Setup Permafrost: RID  2 ": VWCsat: 0.45148, Kdry: 0.20396, Ksat: 2.20688, Kice: 4.13479. (rho_soil: 1481)"
+17:08:25:806: Warning: xml: node "co2pathway" is not present.
+17:08:25:806: Warning: xml: node "co2startYear" is not present.
+17:08:25:806: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:806: Warning: xml: node "model.settings.groundVegetationLAI" is not present (3rd occurrence, suppressed in the future).
+17:08:25:806: Warning: xml: node "model.settings.groundVegetationPsiMin" is not present (3rd occurrence, suppressed in the future).
+17:08:25:806: Setup Permafrost: RID  3 ": VWCsat: 0.45148, Kdry: 0.20396, Ksat: 2.20688, Kice: 4.13479. (rho_soil: 1481)"
+17:08:25:806: Warning: xml: node "co2pathway" is not present.
+17:08:25:806: Warning: xml: node "co2startYear" is not present.
+17:08:25:806: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:806: Setup Permafrost: RID  4 ": VWCsat: 0.44827, Kdry: 0.206166, Ksat: 2.2256, Kice: 4.1513. (rho_soil: 1489.67)"
+17:08:25:806: Warning: xml: node "co2pathway" is not present.
+17:08:25:806: Warning: xml: node "co2startYear" is not present.
+17:08:25:806: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:806: Setup Permafrost: RID  5 ": VWCsat: 0.44827, Kdry: 0.206166, Ksat: 2.2256, Kice: 4.1513. (rho_soil: 1489.67)"
+17:08:25:806: Warning: xml: node "co2pathway" is not present.
+17:08:25:806: Warning: xml: node "co2startYear" is not present.
+17:08:25:806: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:806: Setup Permafrost: RID  6 ": VWCsat: 0.44932, Kdry: 0.205441, Ksat: 2.19999, Kice: 4.10952. (rho_soil: 1486.84)"
+17:08:25:806: Warning: xml: node "co2pathway" is not present.
+17:08:25:806: Warning: xml: node "co2startYear" is not present.
+17:08:25:806: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:806: Setup Permafrost: RID  7 ": VWCsat: 0.45006, Kdry: 0.204932, Ksat: 2.22184, Kice: 4.15462. (rho_soil: 1484.84)"
+17:08:25:821: Warning: xml: node "co2pathway" is not present.
+17:08:25:821: Warning: xml: node "co2startYear" is not present.
+17:08:25:821: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:821: Setup Permafrost: RID  8 ": VWCsat: 0.45111, Kdry: 0.204213, Ksat: 2.19567, Kice: 4.11168. (rho_soil: 1482)"
+17:08:25:821: Warning: xml: node "co2pathway" is not present.
+17:08:25:821: Warning: xml: node "co2startYear" is not present.
+17:08:25:821: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:821: Setup Permafrost: RID  9 ": VWCsat: 0.45333, Kdry: 0.202701, Ksat: 2.26968, Kice: 4.26341. (rho_soil: 1476.01)"
+17:08:25:821: Warning: xml: node "co2pathway" is not present.
+17:08:25:821: Warning: xml: node "co2startYear" is not present.
+17:08:25:821: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:821: Setup Permafrost: RID  10 ": VWCsat: 0.45154, Kdry: 0.203919, Ksat: 2.27062, Kice: 4.25459. (rho_soil: 1480.84)"
+17:08:25:821: Warning: xml: node "co2pathway" is not present.
+17:08:25:821: Warning: xml: node "co2startYear" is not present.
+17:08:25:821: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:821: Setup Permafrost: RID  11 ": VWCsat: 0.44765, Kdry: 0.206595, Ksat: 2.32608, Kice: 4.33499. (rho_soil: 1491.35)"
+17:08:25:821: Warning: xml: node "co2pathway" is not present.
+17:08:25:821: Warning: xml: node "co2startYear" is not present.
+17:08:25:821: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:821: Setup Permafrost: RID  12 ": VWCsat: 0.4487, Kdry: 0.205869, Ksat: 2.29911, Kice: 4.29099. (rho_soil: 1488.51)"
+17:08:25:837: Warning: xml: node "co2pathway" is not present.
+17:08:25:837: Warning: xml: node "co2startYear" is not present.
+17:08:25:837: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:837: Setup Permafrost: RID  13 ": VWCsat: 0.44938, Kdry: 0.2054, Ksat: 2.25991, Kice: 4.22181. (rho_soil: 1486.67)"
+17:08:25:837: Warning: xml: node "co2pathway" is not present.
+17:08:25:837: Warning: xml: node "co2startYear" is not present.
+17:08:25:837: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:837: Setup Permafrost: RID  14 ": VWCsat: 0.44833, Kdry: 0.206124, Ksat: 2.2865, Kice: 4.26525. (rho_soil: 1489.51)"
+17:08:25:837: Warning: xml: node "co2pathway" is not present.
+17:08:25:837: Warning: xml: node "co2startYear" is not present.
+17:08:25:837: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:837: Setup Permafrost: RID  15 ": VWCsat: 0.44512, Kdry: 0.208358, Ksat: 2.30273, Kice: 4.27641. (rho_soil: 1498.18)"
+17:08:25:837: Warning: xml: node "co2pathway" is not present.
+17:08:25:837: Warning: xml: node "co2startYear" is not present.
+17:08:25:837: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:837: Setup Permafrost: RID  16 ": VWCsat: 0.44302, Kdry: 0.209835, Ksat: 2.35445, Kice: 4.3597. (rho_soil: 1503.85)"
+17:08:25:837: Warning: xml: node "co2pathway" is not present.
+17:08:25:837: Warning: xml: node "co2startYear" is not present.
+17:08:25:837: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:837: Setup Permafrost: RID  17 ": VWCsat: 0.44197, Kdry: 0.210578, Ksat: 2.38041, Kice: 4.40133. (rho_soil: 1506.68)"
+17:08:25:853: Warning: xml: node "co2pathway" is not present.
+17:08:25:853: Warning: xml: node "co2startYear" is not present.
+17:08:25:853: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:853: Setup Permafrost: RID  18 ": VWCsat: 0.44197, Kdry: 0.210578, Ksat: 2.38041, Kice: 4.40133. (rho_soil: 1506.68)"
+17:08:25:853: Warning: xml: node "co2pathway" is not present.
+17:08:25:853: Warning: xml: node "co2startYear" is not present.
+17:08:25:853: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:853: Setup Permafrost: RID  19 ": VWCsat: 0.44055, Kdry: 0.211588, Ksat: 2.39374, Kice: 4.41724. (rho_soil: 1510.52)"
+17:08:25:853: Warning: xml: node "co2pathway" is not present.
+17:08:25:853: Warning: xml: node "co2startYear" is not present.
+17:08:25:853: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:853: Setup Permafrost: RID  20 ": VWCsat: 0.44302, Kdry: 0.209835, Ksat: 2.35445, Kice: 4.3597. (rho_soil: 1503.85)"
+17:08:25:853: Warning: xml: node "co2pathway" is not present.
+17:08:25:853: Warning: xml: node "co2startYear" is not present.
+17:08:25:853: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:853: Setup Permafrost: RID  21 ": VWCsat: 0.44234, Kdry: 0.210316, Ksat: 2.39324, Kice: 4.42734. (rho_soil: 1505.68)"
+17:08:25:853: Warning: xml: node "co2pathway" is not present.
+17:08:25:853: Warning: xml: node "co2startYear" is not present.
+17:08:25:853: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:853: Setup Permafrost: RID  22 ": VWCsat: 0.43561, Kdry: 0.215147, Ksat: 2.47101, Kice: 4.52862. (rho_soil: 1523.85)"
+17:08:25:868: Warning: xml: node "co2pathway" is not present.
+17:08:25:868: Warning: xml: node "co2startYear" is not present.
+17:08:25:868: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:868: Setup Permafrost: RID  23 ": VWCsat: 0.44592, Kdry: 0.207798, Ksat: 2.39431, Kice: 4.45142. (rho_soil: 1496.02)"
+17:08:25:868: Warning: xml: node "co2pathway" is not present.
+17:08:25:868: Warning: xml: node "co2startYear" is not present.
+17:08:25:868: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:868: Setup Permafrost: RID  24 ": VWCsat: 0.44407, Kdry: 0.209095, Ksat: 2.32856, Kice: 4.31806. (rho_soil: 1501.01)"
+17:08:25:868: Warning: xml: node "co2pathway" is not present.
+17:08:25:868: Warning: xml: node "co2startYear" is not present.
+17:08:25:868: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:868: Setup Permafrost: RID  25 ": VWCsat: 0.4466, Kdry: 0.207324, Ksat: 2.35311, Kice: 4.37896. (rho_soil: 1494.18)"
+17:08:25:868: Warning: xml: node "co2pathway" is not present.
+17:08:25:868: Warning: xml: node "co2startYear" is not present.
+17:08:25:868: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:868: Setup Permafrost: RID  26 ": VWCsat: 0.44802, Kdry: 0.206339, Ksat: 2.33952, Kice: 4.36227. (rho_soil: 1490.35)"
+17:08:25:868: Warning: xml: node "co2pathway" is not present.
+17:08:25:868: Warning: xml: node "co2startYear" is not present.
+17:08:25:868: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:868: Setup Permafrost: RID  27 ": VWCsat: 0.45012, Kdry: 0.204891, Ksat: 2.28495, Kice: 4.27298. (rho_soil: 1484.68)"
+17:08:25:884: Warning: xml: node "co2pathway" is not present.
+17:08:25:884: Warning: xml: node "co2startYear" is not present.
+17:08:25:884: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:884: Setup Permafrost: RID  28 ": VWCsat: 0.43771, Kdry: 0.213625, Ksat: 2.42015, Kice: 4.44838. (rho_soil: 1518.18)"
+17:08:25:884: Warning: xml: node "co2pathway" is not present.
+17:08:25:884: Warning: xml: node "co2startYear" is not present.
+17:08:25:884: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:884: Setup Permafrost: RID  29 ": VWCsat: 0.43771, Kdry: 0.213625, Ksat: 2.42015, Kice: 4.44838. (rho_soil: 1518.18)"
+17:08:25:884: Warning: xml: node "co2pathway" is not present.
+17:08:25:884: Warning: xml: node "co2startYear" is not present.
+17:08:25:884: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:884: Setup Permafrost: RID  30 ": VWCsat: 0.44697, Kdry: 0.207067, Ksat: 2.36689, Kice: 4.40686. (rho_soil: 1493.18)"
+17:08:25:884: Warning: xml: node "co2pathway" is not present.
+17:08:25:884: Warning: xml: node "co2startYear" is not present.
+17:08:25:884: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:884: Setup Permafrost: RID  31 ": VWCsat: 0.45228, Kdry: 0.203414, Ksat: 2.29794, Kice: 4.31021. (rho_soil: 1478.84)"
+17:08:25:884: Warning: xml: node "co2pathway" is not present.
+17:08:25:884: Warning: xml: node "co2startYear" is not present.
+17:08:25:884: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:884: Setup Permafrost: RID  32 ": VWCsat: 0.43808, Kdry: 0.213358, Ksat: 2.43257, Kice: 4.47352. (rho_soil: 1517.18)"
+17:08:25:899: Warning: xml: node "co2pathway" is not present.
+17:08:25:899: Warning: xml: node "co2startYear" is not present.
+17:08:25:899: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:899: Setup Permafrost: RID  33 ": VWCsat: 0.44055, Kdry: 0.211588, Ksat: 2.39374, Kice: 4.41724. (rho_soil: 1510.52)"
+17:08:25:899: Warning: xml: node "co2pathway" is not present.
+17:08:25:899: Warning: xml: node "co2startYear" is not present.
+17:08:25:899: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:899: Setup Permafrost: RID  34 ": VWCsat: 0.44339, Kdry: 0.209574, Ksat: 2.36699, Kice: 4.38517. (rho_soil: 1502.85)"
+17:08:25:899: Warning: xml: node "co2pathway" is not present.
+17:08:25:899: Warning: xml: node "co2startYear" is not present.
+17:08:25:899: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:899: Setup Permafrost: RID  35 ": VWCsat: 0.43808, Kdry: 0.213358, Ksat: 2.43257, Kice: 4.47352. (rho_soil: 1517.18)"
+17:08:25:899: Warning: xml: node "co2pathway" is not present.
+17:08:25:899: Warning: xml: node "co2startYear" is not present.
+17:08:25:899: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:899: Setup Permafrost: RID  36 ": VWCsat: 0.44234, Kdry: 0.210316, Ksat: 2.39324, Kice: 4.42734. (rho_soil: 1505.68)"
+17:08:25:899: Warning: xml: node "co2pathway" is not present.
+17:08:25:899: Warning: xml: node "co2startYear" is not present.
+17:08:25:899: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:899: Setup Permafrost: RID  37 ": VWCsat: 0.44691, Kdry: 0.207109, Ksat: 2.30065, Kice: 4.28318. (rho_soil: 1493.34)"
+17:08:25:915: Warning: xml: node "co2pathway" is not present.
+17:08:25:915: Warning: xml: node "co2startYear" is not present.
+17:08:25:915: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:915: Setup Permafrost: RID  38 ": VWCsat: 0.45086, Kdry: 0.204384, Ksat: 2.31194, Kice: 4.32792. (rho_soil: 1482.68)"
+17:08:25:915: Warning: xml: node "co2pathway" is not present.
+17:08:25:915: Warning: xml: node "co2startYear" is not present.
+17:08:25:915: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:915: Setup Permafrost: RID  39 ": VWCsat: 0.45512, Kdry: 0.201492, Ksat: 2.26943, Kice: 4.27358. (rho_soil: 1471.18)"
+17:08:25:915: Warning: xml: node "co2pathway" is not present.
+17:08:25:915: Warning: xml: node "co2startYear" is not present.
+17:08:25:915: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:915: Setup Permafrost: RID  40 ": VWCsat: 0.45475, Kdry: 0.201741, Ksat: 2.25516, Kice: 4.24452. (rho_soil: 1472.17)"
+17:08:25:915: Warning: xml: node "co2pathway" is not present.
+17:08:25:915: Warning: xml: node "co2startYear" is not present.
+17:08:25:915: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:915: Setup Permafrost: RID  41 ": VWCsat: 0.45475, Kdry: 0.201741, Ksat: 2.25516, Kice: 4.24452. (rho_soil: 1472.17)"
+17:08:25:915: Warning: xml: node "co2pathway" is not present.
+17:08:25:915: Warning: xml: node "co2startYear" is not present.
+17:08:25:915: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:915: Setup Permafrost: RID  42 ": VWCsat: 0.45759, Kdry: 0.199837, Ksat: 2.22551, Kice: 4.2053. (rho_soil: 1464.51)"
+17:08:25:915: Warning: xml: node "co2pathway" is not present.
+17:08:25:915: Warning: xml: node "co2startYear" is not present.
+17:08:25:915: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:931: Setup Permafrost: RID  43 ": VWCsat: 0.45512, Kdry: 0.201492, Ksat: 2.26943, Kice: 4.27358. (rho_soil: 1471.18)"
+17:08:25:931: Warning: xml: node "co2pathway" is not present.
+17:08:25:931: Warning: xml: node "co2startYear" is not present.
+17:08:25:931: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:931: Setup Permafrost: RID  44 ": VWCsat: 0.45512, Kdry: 0.201492, Ksat: 2.26943, Kice: 4.27358. (rho_soil: 1471.18)"
+17:08:25:931: Warning: xml: node "co2pathway" is not present.
+17:08:25:931: Warning: xml: node "co2startYear" is not present.
+17:08:25:931: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:931: Setup Permafrost: RID  45 ": VWCsat: 0.45759, Kdry: 0.199837, Ksat: 2.22551, Kice: 4.2053. (rho_soil: 1464.51)"
+17:08:25:931: Warning: xml: node "co2pathway" is not present.
+17:08:25:931: Warning: xml: node "co2startYear" is not present.
+17:08:25:931: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:931: Setup Permafrost: RID  46 ": VWCsat: 0.45512, Kdry: 0.201492, Ksat: 2.26943, Kice: 4.27358. (rho_soil: 1471.18)"
+17:08:25:931: Warning: xml: node "co2pathway" is not present.
+17:08:25:931: Warning: xml: node "co2startYear" is not present.
+17:08:25:931: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:931: Setup Permafrost: RID  47 ": VWCsat: 0.45512, Kdry: 0.201492, Ksat: 2.26943, Kice: 4.27358. (rho_soil: 1471.18)"
+17:08:25:931: Warning: xml: node "co2pathway" is not present.
+17:08:25:931: Warning: xml: node "co2startYear" is not present.
+17:08:25:931: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:931: Setup Permafrost: RID  48 ": VWCsat: 0.45932, Kdry: 0.198688, Ksat: 2.15362, Kice: 4.07924. (rho_soil: 1459.84)"
+17:08:25:946: Warning: xml: node "co2pathway" is not present.
+17:08:25:946: Warning: xml: node "co2startYear" is not present.
+17:08:25:946: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:946: Setup Permafrost: RID  49 ": VWCsat: 0.46358, Kdry: 0.19589, Ksat: 2.10418, Kice: 4.00929. (rho_soil: 1448.33)"
+17:08:25:946: Warning: xml: node "co2pathway" is not present.
+17:08:25:946: Warning: xml: node "co2startYear" is not present.
+17:08:25:946: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:946: Setup Permafrost: RID  50 ": VWCsat: 0.46358, Kdry: 0.19589, Ksat: 2.10418, Kice: 4.00929. (rho_soil: 1448.33)"
+17:08:25:946: Warning: xml: node "co2pathway" is not present.
+17:08:25:946: Warning: xml: node "co2startYear" is not present.
+17:08:25:946: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:946: Setup Permafrost: RID  51 ": VWCsat: 0.46358, Kdry: 0.19589, Ksat: 2.10418, Kice: 4.00929. (rho_soil: 1448.33)"
+17:08:25:946: Warning: xml: node "co2pathway" is not present.
+17:08:25:946: Warning: xml: node "co2startYear" is not present.
+17:08:25:946: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:946: Setup Permafrost: RID  52 ": VWCsat: 0.44802, Kdry: 0.206339, Ksat: 2.33952, Kice: 4.36227. (rho_soil: 1490.35)"
+17:08:25:946: Warning: xml: node "co2pathway" is not present.
+17:08:25:946: Warning: xml: node "co2startYear" is not present.
+17:08:25:946: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:946: Setup Permafrost: RID  53 ": VWCsat: 0.45086, Kdry: 0.204384, Ksat: 2.31194, Kice: 4.32792. (rho_soil: 1482.68)"
+17:08:25:962: Warning: xml: node "co2pathway" is not present.
+17:08:25:962: Warning: xml: node "co2startYear" is not present.
+17:08:25:962: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:962: Setup Permafrost: RID  54 ": VWCsat: 0.45086, Kdry: 0.204384, Ksat: 2.31194, Kice: 4.32792. (rho_soil: 1482.68)"
+17:08:25:962: Warning: xml: node "co2pathway" is not present.
+17:08:25:962: Warning: xml: node "co2startYear" is not present.
+17:08:25:962: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:962: Setup Permafrost: RID  55 ": VWCsat: 0.44481, Kdry: 0.208575, Ksat: 2.35347, Kice: 4.36873. (rho_soil: 1499.01)"
+17:08:25:962: Warning: xml: node "co2pathway" is not present.
+17:08:25:962: Warning: xml: node "co2startYear" is not present.
+17:08:25:962: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:962: Setup Permafrost: RID  56 ": VWCsat: 0.44376, Kdry: 0.209313, Ksat: 2.37997, Kice: 4.41148. (rho_soil: 1501.85)"
+17:08:25:962: Warning: xml: node "co2pathway" is not present.
+17:08:25:962: Warning: xml: node "co2startYear" is not present.
+17:08:25:962: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:962: Setup Permafrost: RID  57 ": VWCsat: 0.44376, Kdry: 0.209313, Ksat: 2.37997, Kice: 4.41148. (rho_soil: 1501.85)"
+17:08:25:962: Warning: xml: node "co2pathway" is not present.
+17:08:25:962: Warning: xml: node "co2startYear" is not present.
+17:08:25:962: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:962: Setup Permafrost: RID  58 ": VWCsat: 0.44623, Kdry: 0.207582, Ksat: 2.33983, Kice: 4.35202. (rho_soil: 1495.18)"
+17:08:25:978: Warning: xml: node "co2pathway" is not present.
+17:08:25:978: Warning: xml: node "co2startYear" is not present.
+17:08:25:978: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:978: Setup Permafrost: RID  59 ": VWCsat: 0.4416, Kdry: 0.21084, Ksat: 2.368, Kice: 4.37614. (rho_soil: 1507.68)"
+17:08:25:978: Warning: xml: node "co2pathway" is not present.
+17:08:25:978: Warning: xml: node "co2startYear" is not present.
+17:08:25:978: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:978: Setup Permafrost: RID  60 ": VWCsat: 0.4416, Kdry: 0.21084, Ksat: 2.368, Kice: 4.37614. (rho_soil: 1507.68)"
+17:08:25:978: Warning: xml: node "co2pathway" is not present.
+17:08:25:978: Warning: xml: node "co2startYear" is not present.
+17:08:25:978: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:978: Setup Permafrost: RID  61 ": VWCsat: 0.4416, Kdry: 0.21084, Ksat: 2.368, Kice: 4.37614. (rho_soil: 1507.68)"
+17:08:25:978: Warning: xml: node "co2pathway" is not present.
+17:08:25:978: Warning: xml: node "co2startYear" is not present.
+17:08:25:978: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:978: Setup Permafrost: RID  62 ": VWCsat: 0.44339, Kdry: 0.209574, Ksat: 2.36699, Kice: 4.38517. (rho_soil: 1502.85)"
+17:08:25:978: Warning: xml: node "co2pathway" is not present.
+17:08:25:978: Warning: xml: node "co2startYear" is not present.
+17:08:25:978: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:978: Setup Permafrost: RID  63 ": VWCsat: 0.44339, Kdry: 0.209574, Ksat: 2.36699, Kice: 4.38517. (rho_soil: 1502.85)"
+17:08:25:993: Warning: xml: node "co2pathway" is not present.
+17:08:25:993: Warning: xml: node "co2startYear" is not present.
+17:08:25:993: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:993: Setup Permafrost: RID  64 ": VWCsat: 0.44197, Kdry: 0.210578, Ksat: 2.38041, Kice: 4.40133. (rho_soil: 1506.68)"
+17:08:25:993: Warning: xml: node "co2pathway" is not present.
+17:08:25:993: Warning: xml: node "co2startYear" is not present.
+17:08:25:993: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:993: Setup Permafrost: RID  65 ": VWCsat: 0.4437, Kdry: 0.209355, Ksat: 2.31674, Kice: 4.29393. (rho_soil: 1502.01)"
+17:08:25:993: Warning: xml: node "co2pathway" is not present.
+17:08:25:993: Warning: xml: node "co2startYear" is not present.
+17:08:25:993: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:993: Setup Permafrost: RID  66 ": VWCsat: 0.4416, Kdry: 0.21084, Ksat: 2.368, Kice: 4.37614. (rho_soil: 1507.68)"
+17:08:25:993: Warning: xml: node "co2pathway" is not present.
+17:08:25:993: Warning: xml: node "co2startYear" is not present.
+17:08:25:993: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:993: Setup Permafrost: RID  67 ": VWCsat: 0.44302, Kdry: 0.209835, Ksat: 2.35445, Kice: 4.3597. (rho_soil: 1503.85)"
+17:08:25:993: Warning: xml: node "co2pathway" is not present.
+17:08:25:993: Warning: xml: node "co2startYear" is not present.
+17:08:25:993: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:25:993: Setup Permafrost: RID  68 ": VWCsat: 0.46642, Kdry: 0.19405, Ksat: 2.06943, Kice: 3.95868. (rho_soil: 1440.67)"
+17:08:26:009: Warning: xml: node "co2pathway" is not present.
+17:08:26:009: Warning: xml: node "co2startYear" is not present.
+17:08:26:009: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:009: Setup Permafrost: RID  69 ": VWCsat: 0.465, Kdry: 0.194967, Ksat: 2.08701, Kice: 3.98443. (rho_soil: 1444.5)"
+17:08:26:009: Warning: xml: node "co2pathway" is not present.
+17:08:26:009: Warning: xml: node "co2startYear" is not present.
+17:08:26:009: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:009: Setup Permafrost: RID  70 ": VWCsat: 0.46574, Kdry: 0.194488, Ksat: 2.1151, Kice: 4.04223. (rho_soil: 1442.5)"
+17:08:26:009: Warning: xml: node "co2pathway" is not present.
+17:08:26:009: Warning: xml: node "co2startYear" is not present.
+17:08:26:009: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:009: Setup Permafrost: RID  71 ": VWCsat: 0.46574, Kdry: 0.194488, Ksat: 2.1151, Kice: 4.04223. (rho_soil: 1442.5)"
+17:08:26:009: Warning: xml: node "co2pathway" is not present.
+17:08:26:009: Warning: xml: node "co2startYear" is not present.
+17:08:26:009: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:009: Setup Permafrost: RID  72 ": VWCsat: 0.46574, Kdry: 0.194488, Ksat: 2.1151, Kice: 4.04223. (rho_soil: 1442.5)"
+17:08:26:009: Warning: xml: node "co2pathway" is not present.
+17:08:26:009: Warning: xml: node "co2startYear" is not present.
+17:08:26:009: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:009: Setup Permafrost: RID  73 ": VWCsat: 0.4608, Kdry: 0.19771, Ksat: 2.20996, Kice: 4.1946. (rho_soil: 1455.84)"
+17:08:26:025: Warning: xml: node "co2pathway" is not present.
+17:08:26:025: Warning: xml: node "co2startYear" is not present.
+17:08:26:025: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:025: Setup Permafrost: RID  74 ": VWCsat: 0.4608, Kdry: 0.19771, Ksat: 2.20996, Kice: 4.1946. (rho_soil: 1455.84)"
+17:08:26:025: Warning: xml: node "co2pathway" is not present.
+17:08:26:025: Warning: xml: node "co2startYear" is not present.
+17:08:26:025: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:025: Setup Permafrost: RID  75 ": VWCsat: 0.45907, Kdry: 0.198853, Ksat: 2.28816, Kice: 4.33258. (rho_soil: 1460.51)"
+17:08:26:025: Warning: xml: node "co2pathway" is not present.
+17:08:26:025: Warning: xml: node "co2startYear" is not present.
+17:08:26:025: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:025: Setup Permafrost: RID  76 ": VWCsat: 0.45055, Kdry: 0.204596, Ksat: 2.36987, Kice: 4.43444. (rho_soil: 1483.51)"
+17:08:26:025: Warning: xml: node "co2pathway" is not present.
+17:08:26:025: Warning: xml: node "co2startYear" is not present.
+17:08:26:025: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:025: Setup Permafrost: RID  77 ": VWCsat: 0.45444, Kdry: 0.20195, Ksat: 2.31376, Kice: 4.35293. (rho_soil: 1473.01)"
+17:08:26:025: Warning: xml: node "co2pathway" is not present.
+17:08:26:025: Warning: xml: node "co2startYear" is not present.
+17:08:26:025: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:025: Setup Permafrost: RID  78 ": VWCsat: 0.45444, Kdry: 0.20195, Ksat: 2.31376, Kice: 4.35293. (rho_soil: 1473.01)"
+17:08:26:040: Warning: xml: node "co2pathway" is not present.
+17:08:26:040: Warning: xml: node "co2startYear" is not present.
+17:08:26:040: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:040: Setup Permafrost: RID  79 ": VWCsat: 0.45444, Kdry: 0.20195, Ksat: 2.31376, Kice: 4.35293. (rho_soil: 1473.01)"
+17:08:26:040: Warning: xml: node "co2pathway" is not present.
+17:08:26:040: Warning: xml: node "co2startYear" is not present.
+17:08:26:040: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:040: Setup Permafrost: RID  80 ": VWCsat: 0.45444, Kdry: 0.20195, Ksat: 2.31376, Kice: 4.35293. (rho_soil: 1473.01)"
+17:08:26:040: Warning: xml: node "co2pathway" is not present.
+17:08:26:040: Warning: xml: node "co2startYear" is not present.
+17:08:26:040: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:040: Setup Permafrost: RID  81 ": VWCsat: 0.45444, Kdry: 0.20195, Ksat: 2.31376, Kice: 4.35293. (rho_soil: 1473.01)"
+17:08:26:040: Warning: xml: node "co2pathway" is not present.
+17:08:26:040: Warning: xml: node "co2startYear" is not present.
+17:08:26:040: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:040: Setup Permafrost: RID  82 ": VWCsat: 0.45444, Kdry: 0.20195, Ksat: 2.31376, Kice: 4.35293. (rho_soil: 1473.01)"
+17:08:26:040: Warning: xml: node "co2pathway" is not present.
+17:08:26:040: Warning: xml: node "co2startYear" is not present.
+17:08:26:040: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:040: Setup Permafrost: RID  83 ": VWCsat: 0.45765, Kdry: 0.199797, Ksat: 2.3022, Kice: 4.35056. (rho_soil: 1464.35)"
+17:08:26:056: Warning: xml: node "co2pathway" is not present.
+17:08:26:056: Warning: xml: node "co2startYear" is not present.
+17:08:26:056: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:056: Setup Permafrost: RID  84 ": VWCsat: 0.45586, Kdry: 0.200994, Ksat: 2.29984, Kice: 4.33529. (rho_soil: 1469.18)"
+17:08:26:056: Warning: xml: node "co2pathway" is not present.
+17:08:26:056: Warning: xml: node "co2startYear" is not present.
+17:08:26:056: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:056: Setup Permafrost: RID  85 ": VWCsat: 0.45765, Kdry: 0.199797, Ksat: 2.3022, Kice: 4.35056. (rho_soil: 1464.35)"
+17:08:26:056: Warning: xml: node "co2pathway" is not present.
+17:08:26:056: Warning: xml: node "co2startYear" is not present.
+17:08:26:056: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:056: Setup Permafrost: RID  86 ": VWCsat: 0.44518, Kdry: 0.208316, Ksat: 2.36659, Kice: 4.39536. (rho_soil: 1498.01)"
+17:08:26:056: Warning: xml: node "co2pathway" is not present.
+17:08:26:056: Warning: xml: node "co2startYear" is not present.
+17:08:26:056: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:056: Setup Permafrost: RID  87 ": VWCsat: 0.44518, Kdry: 0.208316, Ksat: 2.36659, Kice: 4.39536. (rho_soil: 1498.01)"
+17:08:26:056: Warning: xml: node "co2pathway" is not present.
+17:08:26:056: Warning: xml: node "co2startYear" is not present.
+17:08:26:056: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:056: Setup Permafrost: RID  88 ": VWCsat: 0.44802, Kdry: 0.206339, Ksat: 2.33952, Kice: 4.36227. (rho_soil: 1490.35)"
+17:08:26:071: Warning: xml: node "co2pathway" is not present.
+17:08:26:071: Warning: xml: node "co2startYear" is not present.
+17:08:26:071: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:071: Setup Permafrost: RID  89 ": VWCsat: 0.43876, Kdry: 0.212869, Ksat: 2.39483, Kice: 4.40827. (rho_soil: 1515.35)"
+17:08:26:071: Warning: xml: node "co2pathway" is not present.
+17:08:26:071: Warning: xml: node "co2startYear" is not present.
+17:08:26:071: Warning: xml: node "model.initialization.snags.otherAbovegroundFraction" is not present.
+17:08:26:071: Setup Permafrost: RID  90 ": VWCsat: 0.4416, Kdry: 0.21084, Ksat: 2.368, Kice: 4.37614. (rho_soil: 1507.68)"
+17:08:26:071: Setup of climates: #loaded: 90 tables: "TC_1, TC_2, TC_3, TC_4, TC_5, TC_6, ..."
+17:08:26:071: setup of 90 climates performed.
+17:08:26:071: Loaded stand grid from  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/gis/blitz_grid.txt" , #stands:  90
+17:08:26:071: created a grid of ResourceUnits: count= 90 number of RU-map-cells: 90
+17:08:26:071: Total stockable area of the landscape is 90 ha.
+17:08:26:103: Warning: xml: node "model.settings.grass.enabled" is not present.
+17:08:26:103: grass module not enabled
+17:08:26:103: Warning: xml: node "system.settings.threadCount" is not present.
+17:08:26:103: Multithreading enabled:  true thread count: 40
+17:08:26:103: created extra seed map and serotiny seed kernel for species "Picea mariana" with fecundity factor 30
+17:08:26:103: created extra seed map and serotiny seed kernel for species "Pinus contorta (ser)" with fecundity factor 30
+17:08:26:103: Setup of seed dispersal maps finished.
+17:08:26:103: Warning: xml: node "model.management.abeEnabled" is not present.
+17:08:26:103: Warning: xml: node "model.settings.svdStates.enabled" is not present.
+17:08:26:103: Timer "load project" : "381.642ms"
+17:08:26:103: setup database connection "out" to "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/output/output_noBrow.sqlite"
+17:08:26:103: Setting up outputs...
+17:08:26:103: treeout::setup() called
+17:08:26:446: Warning: xml: node "filter" is not present.
+17:08:26:446: Warning: xml: node "enabled" is not present.
+17:08:26:446: Warning: xml: node "output.stand.rufilter" is not present.
+17:08:26:446: Warning: xml: node "includeHarvest" is not present.
+17:08:26:446: Warning: xml: node "includeNatural" is not present.
+17:08:26:446: Warning: xml: node "dbhClasses" is not present.
+17:08:26:446: Warning: xml: node "enabled" is not present.
+17:08:26:446: Warning: xml: node "output.dynamicstand.condition" is not present.
+17:08:26:446: Warning: xml: node "output.dynamicstand.conditionRU" is not present.
+17:08:26:446: Warning: xml: node "enabled" is not present (3rd occurrence, suppressed in the future).
+17:08:26:625: Warning: xml: node "output.carbon.conditionRU" is not present.
+17:08:26:629: Warning: xml: node "output.carbonflow.condition" is not present.
+17:08:26:629: Warning: xml: node "output.carbonflow.conditionRU" is not present.
+17:08:26:629: Warning: xml: node "output.water.condition" is not present.
+17:08:26:629: Warning: xml: node "output.water.conditionRU" is not present.
+17:08:26:631: SVDStateOutput: added extra columns for 5 species to the output dynamically.
+17:08:26:631: Warning: xml: node "shannonIndex" is not present.
+17:08:26:631: Warning: xml: node "abovegroundCarbon" is not present.
+17:08:26:631: Warning: xml: node "totalCarbon" is not present.
+17:08:26:631: Warning: xml: node "volume" is not present.
+17:08:26:631: Warning: xml: node "crownCover" is not present.
+17:08:26:631: Warning: xml: node "LAI" is not present.
+17:08:26:631: Warning: xml: node "basalArea" is not present.
+17:08:26:631: Warning: xml: node "stemDensity" is not present.
+17:08:26:631: Warning: xml: node "saplingDensity" is not present.
+17:08:26:631: Warning: xml: node "speciesProportions" is not present.
+17:08:26:631: Warning: xml: node "disturbanceHistory" is not present.
+17:08:26:631: SVDIndicatorOut: setup indicators:  0 active. Details:  "00000000000000000000000000000000"
+17:08:26:631: Warning: xml: node "condition" is not present.
+17:08:26:631: Warning: xml: node "condition" is not present.
+17:08:26:631: Warning: xml: node "fileName" is not present.
+17:08:26:632: processed 24 outputs:  QList("tree", "treeremoved", "stand", "landscape", "landscape_removed", "dynamicstand", "customagg", "production_month", "standdead", "management", "sapling", "saplingdetail", "carbon", "carbonflow", "soilinput", "water", "svdgpp", "svdstate", "svdindicator", "svduniquestate", "devstage", "ecoviz", "bite", "BiteTabMoose")
+17:08:26:632: Setup of outputs completed.
+17:08:26:632: Stand initialization: no file specifed, starting with bare ground.
+17:08:26:673: initialization of sapling: total created: 749340
+17:08:26:676: opening transaction
+17:08:26:682: database transaction commited
+17:08:26:685: Settings not found in project file (more often than 3 times):
+17:08:26:685: =============================================================
+17:08:26:685: "model.settings.groundVegetationPsiMin" : 90 times
+17:08:26:685: "model.settings.groundVegetationLAI" : 90 times
+17:08:26:685: "enabled" : 12 times
+17:08:26:685: Model created.
+17:08:30:071: clicked: "Bite:Moose - agentBiomass"
+17:08:30:071: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:30:915: clicked: "Bite:Moose - active"
+17:08:30:915: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:34:587: ModelControler: runloop started.
+17:08:34:587: "17:08:34:" ModelController: run year 1
+17:08:34:634: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:34:634: opening transaction
+17:08:34:665: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:34:678: "17:08:34:" ModelController: run year 2
+17:08:34:697: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:34:729: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:34:732: "17:08:34:" ModelController: run year 3
+17:08:34:751: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:34:779: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:34:783: "17:08:34:" ModelController: run year 4
+17:08:34:804: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:34:843: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:34:846: "17:08:34:" ModelController: run year 5
+17:08:34:869: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:34:897: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:34:901: "17:08:34:" ModelController: run year 6
+17:08:34:922: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:34:949: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:34:952: "17:08:34:" ModelController: run year 7
+17:08:34:973: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:011: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:014: "17:08:35:" ModelController: run year 8
+17:08:35:040: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:070: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:080: "17:08:35:" ModelController: run year 9
+17:08:35:103: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:131: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:134: "17:08:35:" ModelController: run year 10
+17:08:35:160: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:188: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:191: "17:08:35:" ModelController: run year 11
+17:08:35:213: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:242: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:245: "17:08:35:" ModelController: run year 12
+17:08:35:267: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:306: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:309: "17:08:35:" ModelController: run year 13
+17:08:35:336: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:378: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:381: "17:08:35:" ModelController: run year 14
+17:08:35:408: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:440: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:443: "17:08:35:" ModelController: run year 15
+17:08:35:455: SeedDispersal: created seed map for sapling trees for species "Picea mariana"
+17:08:35:464: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:498: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:501: "17:08:35:" ModelController: run year 16
+17:08:35:531: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:564: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:567: "17:08:35:" ModelController: run year 17
+17:08:35:596: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:640: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:643: "17:08:35:" ModelController: run year 18
+17:08:35:669: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:733: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:736: "17:08:35:" ModelController: run year 19
+17:08:35:775: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:839: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:842: "17:08:35:" ModelController: run year 20
+17:08:35:878: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:35:964: Timer "Model::runYear()" : "122.888ms"
+17:08:35:965: Timer "ModelController:runYear" : "123.427ms"
+17:08:35:968: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:35:972: "17:08:35:" ModelController: run year 21
+17:08:36:008: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:36:082: Timer "Model::runYear()" : "109.84ms"
+17:08:36:082: Timer "ModelController:runYear" : "110.227ms"
+17:08:36:085: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:36:088: "17:08:36:" ModelController: run year 22
+17:08:36:119: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:36:217: Timer "Model::runYear()" : "128.938ms"
+17:08:36:217: Timer "ModelController:runYear" : "129.34ms"
+17:08:36:220: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:36:224: "17:08:36:" ModelController: run year 23
+17:08:36:265: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:36:361: Timer "Model::runYear()" : "137.846ms"
+17:08:36:362: Timer "ModelController:runYear" : "138.249ms"
+17:08:36:365: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:36:368: "17:08:36:" ModelController: run year 24
+17:08:36:397: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:36:494: Timer "Model::runYear()" : "125.229ms"
+17:08:36:494: Timer "ModelController:runYear" : "125.63ms"
+17:08:36:497: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:36:500: "17:08:36:" ModelController: run year 25
+17:08:36:530: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:36:634: Timer "outputs" : "101.51ms"
+17:08:36:634: Timer "Model::runYear()" : "134.82ms"
+17:08:36:634: Timer "ModelController:runYear" : "135.205ms"
+17:08:36:637: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:36:640: "17:08:36:" ModelController: run year 26
+17:08:36:672: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:36:784: Timer "outputs" : "110.066ms"
+17:08:36:784: Timer "Model::runYear()" : "143.545ms"
+17:08:36:785: Timer "ModelController:runYear" : "143.942ms"
+17:08:36:788: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:36:791: "17:08:36:" ModelController: run year 27
+17:08:36:822: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:36:940: Timer "outputs" : "115.465ms"
+17:08:36:940: Timer "Model::runYear()" : "148.99ms"
+17:08:36:942: Timer "ModelController:runYear" : "151.667ms"
+17:08:36:944: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:36:947: "17:08:36:" ModelController: run year 28
+17:08:36:989: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:37:116: Timer "outputs" : "125.063ms"
+17:08:37:116: Timer "Model::runYear()" : "169.371ms"
+17:08:37:116: Timer "ModelController:runYear" : "169.768ms"
+17:08:37:119: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:37:122: "17:08:37:" ModelController: run year 29
+17:08:37:161: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:37:312: Timer "outputs" : "148.845ms"
+17:08:37:312: Timer "Model::runYear()" : "189.891ms"
+17:08:37:312: Timer "ModelController:runYear" : "190.281ms"
+17:08:37:315: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:37:318: "17:08:37:" ModelController: run year 30
+17:08:37:359: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:37:494: Timer "outputs" : "133.18ms"
+17:08:37:494: Timer "Model::runYear()" : "175.536ms"
+17:08:37:494: Timer "ModelController:runYear" : "175.927ms"
+17:08:37:497: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:37:500: "17:08:37:" ModelController: run year 31
+17:08:37:533: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:37:674: Timer "outputs" : "139.687ms"
+17:08:37:674: Timer "Model::runYear()" : "174.054ms"
+17:08:37:674: Timer "ModelController:runYear" : "174.438ms"
+17:08:37:677: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:37:680: "17:08:37:" ModelController: run year 32
+17:08:37:718: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:37:865: Timer "outputs" : "145.689ms"
+17:08:37:865: Timer "Model::runYear()" : "184.638ms"
+17:08:37:865: Timer "ModelController:runYear" : "185.016ms"
+17:08:37:868: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:37:871: "17:08:37:" ModelController: run year 33
+17:08:37:906: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:38:075: Timer "outputs" : "167.606ms"
+17:08:38:075: Timer "Model::runYear()" : "203.125ms"
+17:08:38:077: Timer "ModelController:runYear" : "205.835ms"
+17:08:38:079: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:38:082: "17:08:38:" ModelController: run year 34
+17:08:38:124: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:38:291: Timer "outputs" : "166.195ms"
+17:08:38:291: Timer "Model::runYear()" : "210.055ms"
+17:08:38:292: Timer "ModelController:runYear" : "210.462ms"
+17:08:38:295: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:38:298: "17:08:38:" ModelController: run year 35
+17:08:38:333: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:38:506: Timer "outputs" : "171.44ms"
+17:08:38:506: Timer "Model::runYear()" : "207.873ms"
+17:08:38:506: Timer "ModelController:runYear" : "208.278ms"
+17:08:38:509: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:38:515: "17:08:38:" ModelController: run year 36
+17:08:38:553: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:38:733: Timer "outputs" : "178.597ms"
+17:08:38:733: Timer "Model::runYear()" : "217.841ms"
+17:08:38:734: Timer "ModelController:runYear" : "218.255ms"
+17:08:38:737: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:38:740: "17:08:38:" ModelController: run year 37
+17:08:38:774: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:38:978: Timer "outputs" : "203.089ms"
+17:08:38:978: Timer "Model::runYear()" : "239.131ms"
+17:08:38:979: Timer "ModelController:runYear" : "239.684ms"
+17:08:38:982: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:38:986: "17:08:38:" ModelController: run year 38
+17:08:38:993: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.43154
+17:08:39:030: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:39:254: Timer "outputs" : "223.142ms"
+17:08:39:254: Timer "Model::runYear()" : "268.239ms"
+17:08:39:255: Timer "ModelController:runYear" : "268.736ms"
+17:08:39:259: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:39:265: "17:08:39:" ModelController: run year 39
+17:08:39:272: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.89942
+17:08:39:311: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:39:529: Timer "outputs" : "216.727ms"
+17:08:39:529: Timer "Model::runYear()" : "263.539ms"
+17:08:39:530: Timer "ModelController:runYear" : "264.034ms"
+17:08:39:530: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:39:536: "17:08:39:" ModelController: run year 40
+17:08:39:544: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.36436
+17:08:39:544: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.12411
+17:08:39:577: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:39:814: Timer "outputs" : "235.836ms"
+17:08:39:814: Timer "Model::runYear()" : "277.514ms"
+17:08:39:815: Timer "ModelController:runYear" : "278.016ms"
+17:08:39:815: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:39:821: "17:08:39:" ModelController: run year 41
+17:08:39:829: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.09096
+17:08:39:829: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.41389
+17:08:39:866: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:40:099: Timer "outputs" : "230.796ms"
+17:08:40:099: Timer "Model::runYear()" : "277.166ms"
+17:08:40:100: Timer "ModelController:runYear" : "277.663ms"
+17:08:40:103: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:40:109: "17:08:40:" ModelController: run year 42
+17:08:40:114: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.45212
+17:08:40:115: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.83932
+17:08:40:115: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.64402
+17:08:40:143: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:40:397: Timer "outputs" : "252.926ms"
+17:08:40:397: Timer "Model::runYear()" : "288.523ms"
+17:08:40:398: Timer "ModelController:runYear" : "289.143ms"
+17:08:40:398: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:40:405: "17:08:40:" ModelController: run year 43
+17:08:40:412: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.80849
+17:08:40:412: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.52228
+17:08:40:412: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.09288
+17:08:40:412: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.77661
+17:08:40:412: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.03154
+17:08:40:412: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.18776
+17:08:40:413: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.04743
+17:08:40:413: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.0216
+17:08:40:413: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.3589
+17:08:40:441: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:40:722: Timer "outputs" : "279.111ms"
+17:08:40:722: Timer "Model::runYear()" : "316.247ms"
+17:08:40:723: Timer "ModelController:runYear" : "316.784ms"
+17:08:40:723: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:40:734: "17:08:40:" ModelController: run year 44
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.3109
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.41375
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.90265
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.77119
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.23902
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.1781
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.97442
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.37597
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.45905
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.15399
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.57619
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.39685
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.26696
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.41987
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.38801
+17:08:40:742: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.57904
+17:08:40:743: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.43323
+17:08:40:743: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.26294
+17:08:40:743: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.32797
+17:08:40:780: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:41:044: Timer "outputs" : "262.664ms"
+17:08:41:044: Timer "Model::runYear()" : "310.34ms"
+17:08:41:045: Timer "ModelController:runYear" : "310.914ms"
+17:08:41:045: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:41:053: "17:08:41:" ModelController: run year 45
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.38126
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.13436
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.31197
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.43076
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.51674
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.67016
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.03387
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.83524
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.46702
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.39792
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.39809
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.44074
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.0865
+17:08:41:060: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.91907
+17:08:41:061: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.80644
+17:08:41:061: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.85241
+17:08:41:061: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.00733
+17:08:41:087: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:41:366: Timer "outputs" : "276.492ms"
+17:08:41:366: Timer "Model::runYear()" : "313.542ms"
+17:08:41:367: Timer "ModelController:runYear" : "314.083ms"
+17:08:41:367: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:41:373: "17:08:41:" ModelController: run year 46
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.90352
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.41305
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.1356
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.95183
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.79459
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.21084
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.7271
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.36246
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.07839
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.88821
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.95405
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.90334
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.28163
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.71792
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.88905
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.00045
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.00802
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.02255
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.3159
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.96447
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.223
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.65301
+17:08:41:381: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.39607
+17:08:41:382: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.14156
+17:08:41:407: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:41:704: Timer "outputs" : "295.879ms"
+17:08:41:704: Timer "Model::runYear()" : "331.309ms"
+17:08:41:706: Timer "ModelController:runYear" : "331.871ms"
+17:08:41:706: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:41:712: "17:08:41:" ModelController: run year 47
+17:08:41:720: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.7684
+17:08:41:720: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.83978
+17:08:41:720: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.70117
+17:08:41:720: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.91682
+17:08:41:720: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.99589
+17:08:41:720: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.06975
+17:08:41:720: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.35354
+17:08:41:720: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.69382
+17:08:41:721: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.67717
+17:08:41:721: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.039
+17:08:41:721: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.40924
+17:08:41:721: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.60107
+17:08:41:721: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.00671
+17:08:41:721: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.29105
+17:08:41:721: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.99441
+17:08:41:721: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.2711
+17:08:41:721: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.46842
+17:08:41:721: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.76124
+17:08:41:757: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:42:050: Timer "outputs" : "291.389ms"
+17:08:42:050: Timer "Model::runYear()" : "337.308ms"
+17:08:42:051: Timer "ModelController:runYear" : "338.092ms"
+17:08:42:051: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:42:058: "17:08:42:" ModelController: run year 48
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.9961
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.12682
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.29314
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.84781
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.62619
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.41239
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.74133
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.58412
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.02603
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.41038
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.93015
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.42572
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.82289
+17:08:42:065: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.44213
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.58798
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.94808
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.33088
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.76882
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.99475
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.08757
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.29518
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.57081
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.0066
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.29688
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.16531
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.37685
+17:08:42:066: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.8901
+17:08:42:100: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:42:401: Timer "outputs" : "299.46ms"
+17:08:42:401: Timer "Model::runYear()" : "343.246ms"
+17:08:42:402: Timer "ModelController:runYear" : "343.857ms"
+17:08:42:402: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:42:409: "17:08:42:" ModelController: run year 49
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.70728
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.46638
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.88889
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.14625
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.26354
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.57134
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.21445
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.99664
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.37808
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.95196
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.96756
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.29228
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.96832
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.04235
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.80367
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.71639
+17:08:42:416: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.68173
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.31069
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.52099
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.97815
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.24309
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.26876
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.78044
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.39485
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.84305
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.09036
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.08253
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.17831
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.76775
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.64159
+17:08:42:417: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.12227
+17:08:42:443: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:42:749: Timer "outputs" : "302.959ms"
+17:08:42:749: Timer "Model::runYear()" : "339.585ms"
+17:08:42:749: Timer "ModelController:runYear" : "340.149ms"
+17:08:42:749: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:42:756: "17:08:42:" ModelController: run year 50
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.19266
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.69583
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.5247
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.64534
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.74337
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.85813
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.70518
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.69428
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.69434
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.89259
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.0217
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.825
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.64961
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.50505
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.38184
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.30859
+17:08:42:764: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.98466
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.00746
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.17984
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.87559
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.87195
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.40408
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.43309
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.66755
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.16285
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.88162
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.65115
+17:08:42:765: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.49936
+17:08:42:799: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:43:136: Timer "outputs" : "335.587ms"
+17:08:43:136: Timer "Model::runYear()" : "380.096ms"
+17:08:43:137: Timer "ModelController:runYear" : "380.734ms"
+17:08:43:137: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:43:144: "17:08:43:" ModelController: run year 51
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.70341
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.96238
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.5511
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.60365
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.81278
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.45937
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.5305
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.58826
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.21039
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.9416
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.92631
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.0193
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.71176
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.80694
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.71929
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.82258
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.47201
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.77576
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.6195
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.17655
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.86288
+17:08:43:151: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.71177
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.12646
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.32279
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.56437
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.61825
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.56391
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.36022
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.43378
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.60858
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.94176
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.98336
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.52106
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.77778
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.1273
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.01685
+17:08:43:152: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.17378
+17:08:43:187: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:43:517: Timer "outputs" : "328.365ms"
+17:08:43:517: Timer "Model::runYear()" : "372.601ms"
+17:08:43:518: Timer "ModelController:runYear" : "373.194ms"
+17:08:43:518: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:43:524: "17:08:43:" ModelController: run year 52
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.9604
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.0488
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.24223
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.94178
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.86952
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.96051
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.03829
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.92598
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.05694
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.85533
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.87899
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.13474
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.61321
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.10569
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.15486
+17:08:43:532: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.05109
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.54705
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.08017
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.73623
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.57277
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.64411
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.79994
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.31767
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.74067
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.60331
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.83317
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.62877
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.15145
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.93683
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.61477
+17:08:43:533: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.31261
+17:08:43:561: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:43:921: Timer "outputs" : "358.233ms"
+17:08:43:921: Timer "Model::runYear()" : "396.503ms"
+17:08:43:922: Timer "ModelController:runYear" : "397.205ms"
+17:08:43:922: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:43:930: "17:08:43:" ModelController: run year 53
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.1413
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.31569
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.83625
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.9292
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.32093
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.35952
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.47819
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.93359
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.0526
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.92474
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.13849
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.15403
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.041
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.30503
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.00199
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.00053
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.00504
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.50657
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.5852
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.03513
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.93464
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.5982
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.06343
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.43071
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.75191
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.82501
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.67611
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.94877
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.15145
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.12515
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.98181
+17:08:43:938: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.80044
+17:08:43:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.11832
+17:08:43:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.7676
+17:08:43:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.71583
+17:08:43:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.77824
+17:08:43:974: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:44:102: Timer "TreeOut::exec()" : "126.299ms"
+17:08:44:351: Timer "outputs" : "375.062ms"
+17:08:44:351: Timer "Model::runYear()" : "421.32ms"
+17:08:44:352: Timer "ModelController:runYear" : "421.946ms"
+17:08:44:353: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:44:359: "17:08:44:" ModelController: run year 54
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.48746
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.48912
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.51353
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.69936
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.22383
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.5861
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.762
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.76966
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.18513
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.52189
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.19656
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.9559
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.44874
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.2684
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.23499
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.34517
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.09072
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.26859
+17:08:44:366: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.18309
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.84563
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.55691
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.95281
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.42005
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.03913
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.15145
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.89911
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.14093
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.98181
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.89107
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.07766
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.91802
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.7262
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.74967
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.10407
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.89082
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.36128
+17:08:44:367: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.38308
+17:08:44:396: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:44:551: Timer "TreeOut::exec()" : "153.594ms"
+17:08:44:810: Timer "outputs" : "411.909ms"
+17:08:44:810: Timer "Model::runYear()" : "451.694ms"
+17:08:44:811: Timer "ModelController:runYear" : "452.321ms"
+17:08:44:811: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:44:817: "17:08:44:" ModelController: run year 55
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.66904
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.69131
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.81123
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.49409
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.47609
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.24728
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.03251
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.43679
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.98152
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.12131
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.31901
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.19572
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.39937
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.39276
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.60504
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.34978
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.80376
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.57904
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.76522
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.53213
+17:08:44:826: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.33399
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.05463
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.11456
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.02501
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.65913
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.35891
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.52119
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.5111
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.97147
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.97898
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.45093
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.42541
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.25826
+17:08:44:827: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.24978
+17:08:44:880: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:45:075: Timer "TreeOut::exec()" : "193.588ms"
+17:08:45:335: Timer "outputs" : "452.96ms"
+17:08:45:335: Timer "Model::runYear()" : "516.655ms"
+17:08:45:336: Timer "ModelController:runYear" : "517.356ms"
+17:08:45:336: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:45:342: "17:08:45:" ModelController: run year 56
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.5086
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.87362
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.01835
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.5554
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.04295
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.37712
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.51143
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.77907
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.69388
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.67373
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.63745
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.03688
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.5675
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.23038
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.89305
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.81968
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.79282
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.0888
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.48246
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.94218
+17:08:45:351: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.49335
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.10301
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.24754
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.50983
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.25997
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.78889
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.70686
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.60943
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.98554
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.17732
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.84863
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.49194
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.73019
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.63503
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.99933
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.3627
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.47092
+17:08:45:352: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.40758
+17:08:45:391: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:45:618: Timer "TreeOut::exec()" : "225.137ms"
+17:08:45:874: Timer "outputs" : "482.26ms"
+17:08:45:874: Timer "Model::runYear()" : "531.855ms"
+17:08:45:876: Timer "ModelController:runYear" : "532.488ms"
+17:08:45:877: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:45:882: "17:08:45:" ModelController: run year 57
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.61003
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.92852
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.21877
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.26142
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.71753
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.1239
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.67205
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.97265
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.77945
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.90789
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.11601
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.92041
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.0126
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.45804
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.40137
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.14115
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.62632
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.86844
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.81784
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.89738
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.61111
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.48303
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.45956
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.92381
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.11861
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.19497
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.62868
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.92621
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.47487
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.89359
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.39687
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.12222
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.15957
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.64409
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.70799
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.57753
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.51479
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.19084
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.19336
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.28489
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.4177
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.83173
+17:08:45:892: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.60623
+17:08:45:893: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.93307
+17:08:45:893: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.37477
+17:08:45:926: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:46:164: Timer "TreeOut::exec()" : "236.373ms"
+17:08:46:436: Timer "outputs" : "508.413ms"
+17:08:46:436: Timer "Model::runYear()" : "553.243ms"
+17:08:46:437: Timer "ModelController:runYear" : "553.92ms"
+17:08:46:438: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:46:444: "17:08:46:" ModelController: run year 58
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.87661
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.192
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.61494
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.64952
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.9384
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.23577
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.01023
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.92143
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.84634
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.08503
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.804
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.139
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.14877
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.89584
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.44129
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.84937
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.84422
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.24334
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.60887
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.10192
+17:08:46:453: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.07432
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.10412
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.60277
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.22521
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.71393
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.36832
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.82853
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.06486
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.53557
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.43966
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.55178
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.82309
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.76647
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.4025
+17:08:46:454: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.09718
+17:08:46:487: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:46:763: Timer "TreeOut::exec()" : "274.303ms"
+17:08:47:020: Timer "outputs" : "531.173ms"
+17:08:47:020: Timer "Model::runYear()" : "576.039ms"
+17:08:47:021: Timer "ModelController:runYear" : "576.58ms"
+17:08:47:021: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:47:026: "17:08:47:" ModelController: run year 59
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.89435
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.19237
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.02785
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.97651
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.49743
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.47658
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.86529
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.0074
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.74428
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.05075
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.33785
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.17733
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.7661
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.81242
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.71284
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.84192
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.54399
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.88721
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.91549
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.90225
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.00272
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.29701
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.60865
+17:08:47:034: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.28483
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.23155
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.6915
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.60997
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.92594
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.08464
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.17736
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.63956
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.4017
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.45219
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.36731
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.94091
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.70576
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.80338
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.32624
+17:08:47:035: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.10715
+17:08:47:068: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:47:363: Timer "TreeOut::exec()" : "293.049ms"
+17:08:47:634: Timer "outputs" : "563.947ms"
+17:08:47:634: Timer "Model::runYear()" : "607.674ms"
+17:08:47:635: Timer "ModelController:runYear" : "608.365ms"
+17:08:47:635: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:47:643: "17:08:47:" ModelController: run year 60
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.64942
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.73225
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.63361
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.40994
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.35274
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.78949
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.28689
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.91703
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.91592
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.47764
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.57806
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.16491
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.09735
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.74074
+17:08:47:653: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.0898
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.20845
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.10281
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.68307
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.99054
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.58625
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.14095
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.73116
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.2694
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.81014
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.85565
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.5523
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.36756
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.00039
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.2622
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.82565
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.79902
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.80335
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.37004
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.20147
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.55279
+17:08:47:654: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.3319
+17:08:47:706: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:48:027: Timer "TreeOut::exec()" : "319.174ms"
+17:08:48:272: Timer "outputs" : "563.819ms"
+17:08:48:272: Timer "Model::runYear()" : "629.201ms"
+17:08:48:273: Timer "ModelController:runYear" : "630.19ms"
+17:08:48:273: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:48:280: "17:08:48:" ModelController: run year 61
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.07922
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.38762
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.80024
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.13173
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.8307
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.37388
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.91274
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.11452
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.39349
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.48453
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.83281
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.72515
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.41357
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.51561
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.45394
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.9479
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.4897
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.37112
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.31557
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.42742
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.52965
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.93828
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.7333
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.39667
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.94446
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.18203
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.5609
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.26592
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.80412
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.77658
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.38107
+17:08:48:291: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.96543
+17:08:48:292: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.16584
+17:08:48:292: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.98428
+17:08:48:292: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.96032
+17:08:48:327: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:48:674: Timer "TreeOut::exec()" : "345.227ms"
+17:08:48:915: Timer "outputs" : "586.264ms"
+17:08:48:915: Timer "Model::runYear()" : "635.391ms"
+17:08:48:916: Timer "ModelController:runYear" : "640.045ms"
+17:08:48:916: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:48:925: "17:08:48:" ModelController: run year 62
+17:08:48:936: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.00847
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.58328
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.33389
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.12358
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.39914
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.43266
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.15042
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.18708
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.78026
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.49397
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.56103
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.6257
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.42976
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.49786
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.53244
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.568
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.25637
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.77049
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.10476
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.03759
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.40517
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.88201
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.74995
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.42756
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.25085
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.02177
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.95438
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.19694
+17:08:48:937: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.49496
+17:08:48:974: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:49:364: Timer "TreeOut::exec()" : "387.981ms"
+17:08:49:617: Timer "outputs" : "640.664ms"
+17:08:49:617: Timer "Model::runYear()" : "691.851ms"
+17:08:49:621: Timer "ModelController:runYear" : "697.571ms"
+17:08:49:621: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:49:627: "17:08:49:" ModelController: run year 63
+17:08:49:639: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.25614
+17:08:49:639: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.18318
+17:08:49:639: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.8516
+17:08:49:639: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.62576
+17:08:49:639: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.72899
+17:08:49:639: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.14376
+17:08:49:639: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.16194
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.97204
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.36549
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.48638
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.71382
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.36248
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.1294
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.78692
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.5246
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.40099
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.59271
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.97093
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.81946
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.99422
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.50837
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.85105
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.26328
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.9947
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.18767
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.0038
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.60688
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.45478
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.97072
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.87156
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.16433
+17:08:49:640: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.72104
+17:08:49:685: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:50:122: Timer "TreeOut::exec()" : "434.765ms"
+17:08:50:360: Timer "outputs" : "673.014ms"
+17:08:50:360: Timer "Model::runYear()" : "732.162ms"
+17:08:50:362: Timer "ModelController:runYear" : "734.083ms"
+17:08:50:362: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:50:368: "17:08:50:" ModelController: run year 64
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.43564
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.25696
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.07974
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.69993
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.56455
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.59472
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.76334
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.37854
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.18303
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.587
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.05687
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.43799
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.32094
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.52078
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.91113
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.70317
+17:08:50:379: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.60826
+17:08:50:380: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.44263
+17:08:50:380: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.70783
+17:08:50:380: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.45786
+17:08:50:380: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.36727
+17:08:50:380: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.68072
+17:08:50:380: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.08223
+17:08:50:380: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.68596
+17:08:50:380: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.8765
+17:08:50:380: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.97632
+17:08:50:380: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.14131
+17:08:50:416: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:50:882: Timer "TreeOut::exec()" : "463.367ms"
+17:08:51:128: Timer "outputs" : "710.096ms"
+17:08:51:128: Timer "Model::runYear()" : "759.674ms"
+17:08:51:129: Timer "ModelController:runYear" : "760.332ms"
+17:08:51:130: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:51:140: "17:08:51:" ModelController: run year 65
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.88167
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.25252
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.56968
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.73633
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.97432
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.11293
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.12715
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.18597
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.59778
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.05664
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.76416
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.02339
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.37473
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.87859
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.42508
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.59499
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.3447
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.63841
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.1098
+17:08:51:154: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.2763
+17:08:51:155: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.90494
+17:08:51:155: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.39781
+17:08:51:155: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.45168
+17:08:51:155: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.65246
+17:08:51:155: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.70072
+17:08:51:155: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.50165
+17:08:51:155: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.69807
+17:08:51:155: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.41852
+17:08:51:155: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.99112
+17:08:51:202: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:51:679: Timer "TreeOut::exec()" : "475.198ms"
+17:08:51:918: Timer "outputs" : "714.038ms"
+17:08:51:918: Timer "Model::runYear()" : "776.814ms"
+17:08:51:919: Timer "ModelController:runYear" : "777.391ms"
+17:08:51:919: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:51:925: "17:08:51:" ModelController: run year 66
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.68148
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.71816
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.46728
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.96502
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.7588
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.24278
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.33266
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.63865
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.92732
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.56938
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.84997
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.49169
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.22508
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.31811
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.94194
+17:08:51:939: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.68587
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.70848
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.98359
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.11652
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.81908
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.17499
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.72427
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.56886
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.84482
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.57954
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.1707
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.74256
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.27412
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.24173
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.05966
+17:08:51:940: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.08263
+17:08:51:979: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:52:488: Timer "TreeOut::exec()" : "508.149ms"
+17:08:52:723: Timer "outputs" : "742.197ms"
+17:08:52:723: Timer "Model::runYear()" : "797.114ms"
+17:08:52:724: Timer "ModelController:runYear" : "797.705ms"
+17:08:52:725: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:52:734: "17:08:52:" ModelController: run year 67
+17:08:52:745: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.8133
+17:08:52:745: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.62809
+17:08:52:745: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.47664
+17:08:52:745: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.77168
+17:08:52:745: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.8594
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.66699
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.13486
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.79967
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.32886
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.72364
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.41976
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.44615
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.39189
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.70477
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.08378
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.91195
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.54233
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.04605
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.28753
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.99954
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.36316
+17:08:52:746: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.81877
+17:08:52:747: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.99207
+17:08:52:747: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.67437
+17:08:52:747: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.15911
+17:08:52:747: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.63012
+17:08:52:747: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.349
+17:08:52:747: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.85622
+17:08:52:747: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.86027
+17:08:52:747: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.27426
+17:08:52:785: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:53:316: Timer "TreeOut::exec()" : "528.569ms"
+17:08:53:556: Timer "outputs" : "768.2ms"
+17:08:53:556: Timer "Model::runYear()" : "821.18ms"
+17:08:53:556: Timer "ModelController:runYear" : "822.4ms"
+17:08:53:556: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:53:566: "17:08:53:" ModelController: run year 68
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.26574
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.08686
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.9505
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.86578
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.92597
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.24799
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.80107
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.48342
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.62182
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.54443
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.865
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.08794
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.64469
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.09705
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.70799
+17:08:53:580: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.84019
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.51878
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.28577
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.26739
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.38728
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.37894
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.47361
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.33873
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.21584
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.84527
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.57048
+17:08:53:581: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.81649
+17:08:53:627: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:54:167: Timer "TreeOut::exec()" : "537.016ms"
+17:08:54:400: Timer "outputs" : "770.114ms"
+17:08:54:400: Timer "Model::runYear()" : "834.377ms"
+17:08:54:401: Timer "ModelController:runYear" : "838.551ms"
+17:08:54:401: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:54:415: "17:08:54:" ModelController: run year 69
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.19114
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.11823
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.27921
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.21547
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.15732
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.4776
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.76555
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.39989
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.54823
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.06176
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.84336
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.66779
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.24808
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.90096
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.71129
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.39347
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.55703
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.56001
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.21677
+17:08:54:430: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.33249
+17:08:54:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.43382
+17:08:54:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.32147
+17:08:54:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.56267
+17:08:54:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.19352
+17:08:54:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.51923
+17:08:54:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.97893
+17:08:54:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.85767
+17:08:54:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.44693
+17:08:54:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.86717
+17:08:54:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.52356
+17:08:54:481: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:55:074: Timer "TreeOut::exec()" : "591.34ms"
+17:08:55:300: Timer "outputs" : "817.004ms"
+17:08:55:300: Timer "Model::runYear()" : "884.263ms"
+17:08:55:302: Timer "ModelController:runYear" : "886.18ms"
+17:08:55:302: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:55:309: "17:08:55:" ModelController: run year 70
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.11782
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.23039
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.91426
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.21682
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.47821
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.7975
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.90048
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.92367
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.39628
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.95069
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  4.96568
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.94986
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.37078
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.73333
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.99544
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.88299
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.48824
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.56632
+17:08:55:322: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.71632
+17:08:55:323: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.47343
+17:08:55:323: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.34767
+17:08:55:323: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.1126
+17:08:55:323: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.14492
+17:08:55:372: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:56:006: Timer "TreeOut::exec()" : "632.482ms"
+17:08:56:231: Timer "outputs" : "857.714ms"
+17:08:56:231: Timer "Model::runYear()" : "922.245ms"
+17:08:56:232: Timer "ModelController:runYear" : "923.148ms"
+17:08:56:232: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:56:240: "17:08:56:" ModelController: run year 71
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.44324
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.63176
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.87643
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.50407
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.3478
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.1098
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.72581
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.68432
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.1482
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.16946
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.61356
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.3532
+17:08:56:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.65861
+17:08:56:257: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.90449
+17:08:56:257: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.79732
+17:08:56:257: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.91597
+17:08:56:257: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.80065
+17:08:56:257: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.97137
+17:08:56:257: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.39238
+17:08:56:257: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.00726
+17:08:56:257: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.3022
+17:08:56:257: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.31907
+17:08:56:299: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:56:940: Timer "TreeOut::exec()" : "638.648ms"
+17:08:57:162: Timer "outputs" : "861.592ms"
+17:08:57:162: Timer "Model::runYear()" : "922.169ms"
+17:08:57:163: Timer "ModelController:runYear" : "922.785ms"
+17:08:57:166: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:57:173: "17:08:57:" ModelController: run year 72
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.60446
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.36677
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.55044
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.2935
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.00026
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.26624
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.64473
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.32721
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.03375
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.80858
+17:08:57:189: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.25622
+17:08:57:190: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.80271
+17:08:57:190: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.84852
+17:08:57:190: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53828
+17:08:57:191: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.08473
+17:08:57:191: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.17479
+17:08:57:191: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.57746
+17:08:57:191: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.17756
+17:08:57:244: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:57:931: Timer "TreeOut::exec()" : "684.946ms"
+17:08:58:149: Timer "outputs" : "904ms"
+17:08:58:149: Timer "Model::runYear()" : "976.61ms"
+17:08:58:150: Timer "ModelController:runYear" : "977.299ms"
+17:08:58:151: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:58:158: "17:08:58:" ModelController: run year 73
+17:08:58:174: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.43547
+17:08:58:174: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.78038
+17:08:58:174: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.65468
+17:08:58:174: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.81788
+17:08:58:174: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.56723
+17:08:58:174: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.42887
+17:08:58:175: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.91326
+17:08:58:175: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.76645
+17:08:58:175: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.65816
+17:08:58:175: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.33689
+17:08:58:175: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.77888
+17:08:58:175: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.0439
+17:08:58:175: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.94987
+17:08:58:175: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.34282
+17:08:58:176: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.04936
+17:08:58:239: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:58:935: Timer "TreeOut::exec()" : "693.963ms"
+17:08:59:155: Timer "outputs" : "914.54ms"
+17:08:59:155: Timer "Model::runYear()" : "997.333ms"
+17:08:59:156: Timer "ModelController:runYear" : "998.204ms"
+17:08:59:158: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:08:59:163: "17:08:59:" ModelController: run year 74
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.82171
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.80802
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.683
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.56046
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.10578
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53739
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.74748
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.10638
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.86693
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.32705
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.62761
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.22518
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.93024
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.57469
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.97394
+17:08:59:181: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.00675
+17:08:59:182: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.78987
+17:08:59:182: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.10702
+17:08:59:182: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.32459
+17:08:59:182: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.50219
+17:08:59:233: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:08:59:955: Timer "TreeOut::exec()" : "718.807ms"
+17:09:00:169: Timer "outputs" : "933.315ms"
+17:09:00:169: Timer "Model::runYear()" : "1004.99ms"
+17:09:00:170: Timer "ModelController:runYear" : "1006.99ms"
+17:09:00:170: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:00:179: "17:09:00:" ModelController: run year 75
+17:09:00:196: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.75227
+17:09:00:196: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.9256
+17:09:00:196: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.8022
+17:09:00:196: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.99866
+17:09:00:196: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.65157
+17:09:00:196: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.67893
+17:09:00:196: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.76606
+17:09:00:196: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.16881
+17:09:00:196: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.96719
+17:09:00:196: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.17722
+17:09:00:198: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.84699
+17:09:00:198: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.93877
+17:09:00:198: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.23192
+17:09:00:198: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.94509
+17:09:00:198: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.81649
+17:09:00:198: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.30212
+17:09:00:198: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.91574
+17:09:00:252: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:00:973: Timer "TreeOut::exec()" : "718.492ms"
+17:09:01:198: Timer "outputs" : "943.699ms"
+17:09:01:198: Timer "Model::runYear()" : "1019.76ms"
+17:09:01:199: Timer "ModelController:runYear" : "1020.37ms"
+17:09:01:199: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:01:208: "17:09:01:" ModelController: run year 76
+17:09:01:226: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.7376
+17:09:01:226: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.95612
+17:09:01:226: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.72229
+17:09:01:226: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.69763
+17:09:01:226: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.94139
+17:09:01:226: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.87992
+17:09:01:227: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.74199
+17:09:01:227: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.05304
+17:09:01:227: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.6917
+17:09:01:227: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.08297
+17:09:01:227: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.1691
+17:09:01:227: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.42258
+17:09:01:227: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.49569
+17:09:01:227: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.59968
+17:09:01:227: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.82972
+17:09:01:227: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.04249
+17:09:01:275: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:02:040: Timer "TreeOut::exec()" : "762.074ms"
+17:09:02:252: Timer "outputs" : "974.051ms"
+17:09:02:252: Timer "Model::runYear()" : "1043.94ms"
+17:09:02:252: Timer "ModelController:runYear" : "1044.57ms"
+17:09:02:254: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:02:260: "17:09:02:" ModelController: run year 77
+17:09:02:278: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.41839
+17:09:02:278: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.96347
+17:09:02:278: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.82301
+17:09:02:278: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.63159
+17:09:02:278: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.19373
+17:09:02:278: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.82574
+17:09:02:278: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.85567
+17:09:02:278: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.2346
+17:09:02:278: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.82168
+17:09:02:278: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.49412
+17:09:02:279: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.47103
+17:09:02:279: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.72726
+17:09:02:279: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.94292
+17:09:02:279: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.19876
+17:09:02:279: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.54108
+17:09:02:279: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.96209
+17:09:02:279: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.43934
+17:09:02:324: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:03:136: Timer "TreeOut::exec()" : "809.827ms"
+17:09:03:348: Timer "outputs" : "1022.1ms"
+17:09:03:348: Timer "Model::runYear()" : "1088.64ms"
+17:09:03:349: Timer "ModelController:runYear" : "1089.36ms"
+17:09:03:353: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:03:364: "17:09:03:" ModelController: run year 78
+17:09:03:383: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.25963
+17:09:03:383: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.58404
+17:09:03:383: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.90337
+17:09:03:383: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.98226
+17:09:03:383: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.94229
+17:09:03:383: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.71624
+17:09:03:383: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.96741
+17:09:03:385: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.6045
+17:09:03:385: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.95402
+17:09:03:385: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.28147
+17:09:03:438: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:04:251: Timer "TreeOut::exec()" : "811.22ms"
+17:09:04:457: Timer "outputs" : "1017.92ms"
+17:09:04:457: Timer "Model::runYear()" : "1092.65ms"
+17:09:04:458: Timer "ModelController:runYear" : "1093.48ms"
+17:09:04:458: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:04:465: "17:09:04:" ModelController: run year 79
+17:09:04:485: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.34217
+17:09:04:485: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.97969
+17:09:04:485: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.7339
+17:09:04:485: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.67445
+17:09:04:485: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.81455
+17:09:04:485: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.47256
+17:09:04:485: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.51846
+17:09:04:485: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.60245
+17:09:04:485: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.23217
+17:09:04:485: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.0502
+17:09:04:486: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.68586
+17:09:04:486: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.2589
+17:09:04:486: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.18908
+17:09:04:486: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.537
+17:09:04:486: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.97075
+17:09:04:486: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.2121
+17:09:04:539: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:05:361: Timer "TreeOut::exec()" : "819.347ms"
+17:09:05:569: Timer "outputs" : "1027.09ms"
+17:09:05:569: Timer "Model::runYear()" : "1102.75ms"
+17:09:05:569: Timer "ModelController:runYear" : "1103.29ms"
+17:09:05:572: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:05:578: "17:09:05:" ModelController: run year 80
+17:09:05:599: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.01357
+17:09:05:599: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.47336
+17:09:05:599: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.38312
+17:09:05:600: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.50046
+17:09:05:600: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.08676
+17:09:05:600: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.32611
+17:09:05:659: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:06:509: Timer "TreeOut::exec()" : "848.16ms"
+17:09:06:713: Timer "outputs" : "1053.29ms"
+17:09:06:713: Timer "Model::runYear()" : "1135.08ms"
+17:09:06:714: Timer "ModelController:runYear" : "1135.56ms"
+17:09:06:717: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:06:720: "17:09:06:" ModelController: run year 81
+17:09:06:738: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.06619
+17:09:06:738: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.65477
+17:09:06:738: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.84704
+17:09:06:740: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.59693
+17:09:06:740: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.93055
+17:09:06:740: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.75143
+17:09:06:740: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.65974
+17:09:06:740: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.36166
+17:09:06:740: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.60265
+17:09:06:792: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:07:650: Timer "TreeOut::exec()" : "855.887ms"
+17:09:07:869: Timer "outputs" : "1074.74ms"
+17:09:07:869: Timer "Model::runYear()" : "1148.11ms"
+17:09:07:869: Timer "ModelController:runYear" : "1148.83ms"
+17:09:07:871: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:07:877: "17:09:07:" ModelController: run year 82
+17:09:07:897: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.20466
+17:09:07:897: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.56344
+17:09:07:897: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.91652
+17:09:07:897: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.02313
+17:09:07:898: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.56396
+17:09:07:898: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.69126
+17:09:07:898: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.76678
+17:09:07:898: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.58462
+17:09:07:944: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:08:842: Timer "TreeOut::exec()" : "895.63ms"
+17:09:09:040: Timer "outputs" : "1094.21ms"
+17:09:09:040: Timer "Model::runYear()" : "1163.92ms"
+17:09:09:041: Timer "ModelController:runYear" : "1165.71ms"
+17:09:09:041: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:09:049: "17:09:09:" ModelController: run year 83
+17:09:09:068: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.29133
+17:09:09:068: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.62567
+17:09:09:068: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.59256
+17:09:09:068: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.64354
+17:09:09:068: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.71558
+17:09:09:068: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.67058
+17:09:09:068: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.95275
+17:09:09:068: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.35098
+17:09:09:068: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.07384
+17:09:09:068: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.62673
+17:09:09:070: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.0218
+17:09:09:070: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.87119
+17:09:09:070: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.68313
+17:09:09:070: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.70732
+17:09:09:070: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.42229
+17:09:09:070: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.46728
+17:09:09:121: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:10:034: Timer "TreeOut::exec()" : "911.905ms"
+17:09:10:229: Timer "outputs" : "1106.35ms"
+17:09:10:229: Timer "Model::runYear()" : "1179.63ms"
+17:09:10:230: Timer "ModelController:runYear" : "1180.23ms"
+17:09:10:230: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:10:237: "17:09:10:" ModelController: run year 84
+17:09:10:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.37337
+17:09:10:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.5037
+17:09:10:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.89172
+17:09:10:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.25641
+17:09:10:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.68397
+17:09:10:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.48347
+17:09:10:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.70954
+17:09:10:256: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.3012
+17:09:10:257: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.60948
+17:09:10:258: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.92368
+17:09:10:258: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.49005
+17:09:10:303: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:11:239: Timer "TreeOut::exec()" : "934.1ms"
+17:09:11:436: Timer "outputs" : "1131.32ms"
+17:09:11:436: Timer "Model::runYear()" : "1199.44ms"
+17:09:11:437: Timer "ModelController:runYear" : "1200.04ms"
+17:09:11:438: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:11:445: "17:09:11:" ModelController: run year 85
+17:09:11:466: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.75466
+17:09:11:466: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.758
+17:09:11:466: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.35698
+17:09:11:466: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.80409
+17:09:11:466: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.18803
+17:09:11:467: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.26792
+17:09:11:467: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.60609
+17:09:11:468: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.00059
+17:09:11:468: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.69903
+17:09:11:517: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:12:467: Timer "TreeOut::exec()" : "947.785ms"
+17:09:12:658: Timer "outputs" : "1137.93ms"
+17:09:12:658: Timer "Model::runYear()" : "1212.69ms"
+17:09:12:658: Timer "ModelController:runYear" : "1213.23ms"
+17:09:12:659: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:12:665: "17:09:12:" ModelController: run year 86
+17:09:12:685: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.8133
+17:09:12:685: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.524
+17:09:12:685: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.60348
+17:09:12:685: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.27212
+17:09:12:686: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.99944
+17:09:12:686: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.95127
+17:09:12:686: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.65886
+17:09:12:686: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.01064
+17:09:12:686: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.11408
+17:09:12:686: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.68155
+17:09:12:686: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.20544
+17:09:12:734: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:13:721: Timer "TreeOut::exec()" : "984.182ms"
+17:09:13:929: Timer "outputs" : "1192.13ms"
+17:09:13:929: Timer "Model::runYear()" : "1263.64ms"
+17:09:13:929: Timer "ModelController:runYear" : "1264.43ms"
+17:09:13:929: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:13:938: "17:09:13:" ModelController: run year 87
+17:09:13:958: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.66298
+17:09:13:958: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.87623
+17:09:13:958: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.4568
+17:09:13:958: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.58972
+17:09:13:958: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.626
+17:09:13:959: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.90079
+17:09:13:959: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53598
+17:09:13:959: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.54385
+17:09:13:959: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.77457
+17:09:14:013: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:15:008: Timer "TreeOut::exec()" : "993.605ms"
+17:09:15:197: Timer "outputs" : "1181.7ms"
+17:09:15:197: Timer "Model::runYear()" : "1259.31ms"
+17:09:15:197: Timer "ModelController:runYear" : "1259.9ms"
+17:09:15:197: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:15:206: "17:09:15:" ModelController: run year 88
+17:09:15:229: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.49965
+17:09:15:229: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.93382
+17:09:15:229: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.99387
+17:09:15:229: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.7465
+17:09:15:231: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:15:231: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.14899
+17:09:15:289: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:16:306: Timer "TreeOut::exec()" : "1016.19ms"
+17:09:16:494: Timer "outputs" : "1204.03ms"
+17:09:16:494: Timer "Model::runYear()" : "1288.52ms"
+17:09:16:495: Timer "ModelController:runYear" : "1289.14ms"
+17:09:16:497: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:16:503: "17:09:16:" ModelController: run year 89
+17:09:16:526: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.00847
+17:09:16:526: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.71078
+17:09:16:526: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.98925
+17:09:16:527: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.43834
+17:09:16:527: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:16:527: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:16:584: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:17:589: Timer "TreeOut::exec()" : "1002.25ms"
+17:09:17:773: Timer "outputs" : "1187.17ms"
+17:09:17:773: Timer "Model::runYear()" : "1270.56ms"
+17:09:17:774: Timer "ModelController:runYear" : "1271.25ms"
+17:09:17:774: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:17:783: "17:09:17:" ModelController: run year 90
+17:09:17:806: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.0966
+17:09:17:806: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.0101
+17:09:17:806: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.58061
+17:09:17:807: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.5196
+17:09:17:807: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.4505
+17:09:17:807: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:17:807: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:17:885: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:18:906: Timer "TreeOut::exec()" : "1018.35ms"
+17:09:19:089: Timer "outputs" : "1202.2ms"
+17:09:19:089: Timer "Model::runYear()" : "1306.31ms"
+17:09:19:091: Timer "ModelController:runYear" : "1307.25ms"
+17:09:19:092: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:19:099: "17:09:19:" ModelController: run year 91
+17:09:19:121: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.85191
+17:09:19:121: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.8288
+17:09:19:121: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.54297
+17:09:19:123: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.59609
+17:09:19:123: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:19:123: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:19:183: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:20:219: Timer "TreeOut::exec()" : "1033.1ms"
+17:09:20:399: Timer "outputs" : "1214.56ms"
+17:09:20:399: Timer "Model::runYear()" : "1301.07ms"
+17:09:20:400: Timer "ModelController:runYear" : "1302.33ms"
+17:09:20:402: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:20:407: "17:09:20:" ModelController: run year 92
+17:09:20:429: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.08625
+17:09:20:429: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.65037
+17:09:20:429: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.86947
+17:09:20:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.66857
+17:09:20:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:20:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:20:431: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.13357
+17:09:20:483: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:21:557: Timer "TreeOut::exec()" : "1072.35ms"
+17:09:21:735: Timer "outputs" : "1250.08ms"
+17:09:21:735: Timer "Model::runYear()" : "1327.92ms"
+17:09:21:736: Timer "ModelController:runYear" : "1328.67ms"
+17:09:21:736: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:21:743: "17:09:21:" ModelController: run year 93
+17:09:21:767: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.04575
+17:09:21:767: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.81633
+17:09:21:769: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:21:769: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:21:819: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:22:866: Timer "TreeOut::exec()" : "1045.8ms"
+17:09:23:041: Timer "outputs" : "1220.5ms"
+17:09:23:041: Timer "Model::runYear()" : "1297.79ms"
+17:09:23:042: Timer "ModelController:runYear" : "1299.36ms"
+17:09:23:042: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:23:050: "17:09:23:" ModelController: run year 94
+17:09:23:072: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.71057
+17:09:23:072: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  6.49676
+17:09:23:072: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.63249
+17:09:23:072: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.86491
+17:09:23:073: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:23:073: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:23:073: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.72552
+17:09:23:126: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:24:194: Timer "TreeOut::exec()" : "1067.5ms"
+17:09:24:372: Timer "outputs" : "1244.88ms"
+17:09:24:372: Timer "Model::runYear()" : "1321.65ms"
+17:09:24:373: Timer "ModelController:runYear" : "1322.32ms"
+17:09:24:374: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:24:380: "17:09:24:" ModelController: run year 95
+17:09:24:404: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.00057
+17:09:24:404: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.2619
+17:09:24:404: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.13082
+17:09:24:405: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.07516
+17:09:24:405: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:24:405: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:24:456: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:25:539: Timer "TreeOut::exec()" : "1080.99ms"
+17:09:25:709: Timer "outputs" : "1252.21ms"
+17:09:25:709: Timer "Model::runYear()" : "1329.21ms"
+17:09:25:710: Timer "ModelController:runYear" : "1329.76ms"
+17:09:25:710: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:25:717: "17:09:25:" ModelController: run year 96
+17:09:25:738: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.7403
+17:09:25:738: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.29721
+17:09:25:740: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:25:740: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:25:792: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:26:891: Timer "TreeOut::exec()" : "1097.14ms"
+17:09:27:061: Timer "outputs" : "1267.27ms"
+17:09:27:061: Timer "Model::runYear()" : "1344.32ms"
+17:09:27:062: Timer "ModelController:runYear" : "1344.93ms"
+17:09:27:063: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:27:070: "17:09:27:" ModelController: run year 97
+17:09:27:093: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.75176
+17:09:27:093: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.07342
+17:09:27:095: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:27:095: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:27:145: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:28:248: Timer "TreeOut::exec()" : "1100.94ms"
+17:09:28:415: Timer "outputs" : "1268.37ms"
+17:09:28:415: Timer "Model::runYear()" : "1345.83ms"
+17:09:28:416: Timer "ModelController:runYear" : "1346.36ms"
+17:09:28:416: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:28:423: "17:09:28:" ModelController: run year 98
+17:09:28:448: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.68876
+17:09:28:450: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.93864
+17:09:28:450: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:28:450: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.99758
+17:09:28:450: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:28:500: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:29:625: Timer "TreeOut::exec()" : "1123.49ms"
+17:09:29:790: Timer "outputs" : "1289.04ms"
+17:09:29:790: Timer "Model::runYear()" : "1367.15ms"
+17:09:29:791: Timer "ModelController:runYear" : "1367.69ms"
+17:09:29:791: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:29:797: "17:09:29:" ModelController: run year 99
+17:09:29:820: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.81585
+17:09:29:821: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.05941
+17:09:29:822: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:29:822: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:29:876: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:31:048: Timer "TreeOut::exec()" : "1170.88ms"
+17:09:31:211: Timer "outputs" : "1333.22ms"
+17:09:31:211: Timer "Model::runYear()" : "1412.62ms"
+17:09:31:211: Timer "ModelController:runYear" : "1413.17ms"
+17:09:31:211: --- little break ---- (after  56624 ms).
+17:09:31:211: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:31:219: "17:09:31:" ModelController: run year 100
+17:09:31:244: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.0871
+17:09:31:244: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  7.86274
+17:09:31:245: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  5.8779
+17:09:31:245: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.3081
+17:09:31:245: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.6684
+17:09:31:245: LIFTorus: value>1:  1  Tree:  "Pima" , dbh:  8.53724
+17:09:31:298: saved grid  "x"  to  "D:/workspace/Kate/iland/age growth exclosure/age growth modeling/model/temp/moose_base.asc"
+17:09:32:433: Timer "TreeOut::exec()" : "1134.6ms"
+17:09:32:590: Timer "outputs" : "1290.66ms"
+17:09:32:590: Timer "Model::runYear()" : "1371.18ms"
+17:09:32:591: Timer "ModelController:runYear" : "1371.68ms"
+17:09:32:591: BITE::BiteAgent:: 
+QMetaObject::invokeMethod: No such method BITE::BiteAgent::paintGrid(QString,QStringList&,QStringList&)
+17:09:32:598: database transaction commited
+Total timers
+================
+"readPattern()" : "185.918ms"
+"growTrees()" : "774.118ms"
+"seed dispersal (all species)" : "526.642ms"
+"growRU()" : "183.853ms"
+"water:run" : "1622.77ms"
+"OutputManager::execute()" : "52.0514s"
+"seed dispersal" : "506.222ms"
+"painting" : "76.9383ms"
+"applyPattern()" : "719.406ms"
+"ModelController:runYear" : "57.2759s"
+"SpeciesResponse::calculate" : "153.772ms"
+"carbon cylce" : "162.687ms"
+"establishment" : "238.142ms"
+"TreeOut::exec()" : "35.7658s"
+"outputs" : "52.0732s"
+"execute javascript" : "0.9901ms"
+"modules" : "0.0177ms"
+"Model::runYear()" : "57.1621s"
+"response+3pg" : "179.653ms"
+"sapling growth" : "332.821ms"
+"BITE:JSEvents:run" : "43.7968ms"
+"Seed dispersal, establishment, sapling growth" : "1099.59ms"
+"Bite:run" : "1610.51ms"
+Sum:  262746 ms
+17:09:32:598: Finished!
+17:09:32:601: Timer "Timer for 101 runs" : "58.0015s"
+18:53:03:940: Model clear: attempting to clear 90 RU,  1 SpeciesSets.
+18:53:03:971: outputs closed
+18:53:03:971: Model resources freed.
+18:53:03:971: ModelController: Model destroyed.
