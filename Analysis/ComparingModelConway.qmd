@@ -18,13 +18,41 @@ theme_set(theme_cowplot())
 ## load model height
 
 ```{r}
+<<<<<<< HEAD
 ModelMoose <- read.csv("data/model output/Moose.csv")
 ModelNoMoose <- read.csv("data/model output/NoMoose.csv")
 
 Model <- full_join(ModelMoose, ModelNoMoose)
+=======
+ModelNoMoose <- read.csv("data/model output/NoMoose.csv")
+ModelMoose <- read.csv("data/model output/Moose.csv")
+
+Model <- full_join(ModelNoMoose, ModelMoose)
+
+ModelAV <- Model %>%
+ rename(Height = height, DBH = dbh, Basal = basal) %>%
+  pivot_longer(cols = c(Height, DBH, Basal),
+              names_to = "Variable",
+               values_to = "mean") %>%
+ select(TSF, species, Scenario, Variable, mean)
+
+ModelSD <- Model %>%
+ rename(Height = height_sd, DBH = dbh_sd, Basal = basal_sd) %>%
+ pivot_longer(cols = c(Height, DBH, Basal),
+              names_to = "Variable",
+               values_to = "sd") %>%
+ select(TSF, species, Scenario, Variable, sd)
+
+Model <- left_join(ModelAV, ModelSD)     
+
+rm(ModelNoMoose, ModelMoose, ModelSD, ModelAV)
+>>>>>>> 2b15cb8159ec54b72351a0977f7b53b4186f66f2
 
 Model <- Model %>%
-  mutate(Data = "Model")
+mutate(Data = "Model",
+       high = mean + sd,
+       low = mean - sd,
+       Scenario = ifelse(Scenario == "Control", "Browsing", "No Browsing")) 
 
 rm(ModelMoose, ModelNoMoose)
 
@@ -33,18 +61,51 @@ kable(head(Model))
 
 # Conway
 
-## process conway
+```{r}
+Data <- full_join(conwaySite, Model)
 
-```{r Conway loading}
-conwayIndividRaw <- read.csv("data/Exclosure_Final.csv")
-
-colnames(conwayIndividRaw)
-
-summary(conwayIndividRaw)
-
-kable(head(conwayIndividRaw))
 ```
 
+# Plot Height
+
+## birch
+
+<<<<<<< HEAD
+```{r Conway loading}
+conwayIndividRaw <- read.csv("data/Exclosure_Final.csv")
+=======
+```{r}
+beneMod <- Model %>%
+  filter(species == "Bene")
+>>>>>>> 2b15cb8159ec54b72351a0977f7b53b4186f66f2
+
+beneCon <- conwayHeightSite %>%
+  filter(species == "Bene")
+
+
+ggplot(beneMod) +
+    geom_line(aes(x = TSF, y = height, color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = height - height_sd, 
+                    ymax = height + height_sd, fill = Scenario), 
+                alpha = 0.3) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)", y = "Av. Height (m)",
+         title ="Birch") + xlim(c(0,50)) + 
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) +
+  geom_point(data = beneCon, aes(x = TSF, y = mean, 
+                                 col = Scenario,
+                                 shape = Scenario),
+             alpha = 0.4) +
+  geom_errorbar(data = beneCon, 
+                aes(x = TSF, ymin = low, ymax = high, 
+                    col = Scenario),
+                position = position_dodge(0.75),
+                alpha = 0.5) + 
+  ylim(c(-2.5, 15))
+```
+
+<<<<<<< HEAD
 ## height
 ```{r}
 #| warning: false
@@ -168,4 +229,340 @@ conwayHeightSite <- conwayHeight %>%
   mutate(Data = "Field")
 
 summary(conwayHeightSite)
+=======
+## aspen
+
+```{r}
+potrMod <- ModHeight %>%
+  filter(species == "Potr")
+
+potrCon <- conwayHeightSite %>%
+  filter(species == "Potr")
+
+potrConSd <- potrCon %>%
+  group_by(Scenario, TSF) %>%
+  summarise(mean = mean(height),
+            sd = sd(height, na.rm = TRUE)) %>%
+  mutate(low = mean - sd,
+         high = mean + sd)
+
+
+ggplot(potrMod) +
+    geom_line(aes(x = TSF, y = height, color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, fill = Scenario), 
+                alpha = 0.3) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)", y = "Av. Height (m)",
+         title ="Aspen") + xlim(c(0,50)) + 
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) +
+  geom_point(data = potrCon, aes(x = TSF, y = height, 
+                                 col = Scenario,
+                                 shape = Scenario),
+             alpha = 0.4) +
+  geom_errorbar(data = potrCon, 
+                aes(x = TSF, ymin = low, ymax = high, 
+                    col = Scenario),
+                position = position_dodge(0.75),
+                alpha = 0.5) + 
+  ylim(c(-2.5, 15))
+```
+
+## spruce
+
+```{r spruce plot}
+pimaMod <- ModHeight %>%
+  filter(species == "Pima")
+
+pimaCon <- conwayHeightSite %>%
+  filter(species == "Pima")
+
+pimaConSd <- pimaCon %>%
+  group_by(Scenario, TSF) %>%
+  summarise(mean = mean(height),
+            sd = sd(height, na.rm = TRUE)) %>%
+  mutate(low = mean - sd,
+         high = mean + sd)
+
+ggplot(pimaMod) +
+    geom_line(aes(x = TSF, y = height, color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, fill = Scenario), 
+                alpha = 0.3) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)", y = "Av. Height (m)",
+         title = "Black Spruce") + xlim(c(0,50)) + 
+  ylim(c(-2.5, 10)) +
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) +
+  geom_point(data = beneCon, aes(x = TSF, y = height, 
+                                 col = Scenario,
+                                 shape = Scenario),
+             alpha = 0.4) +
+  geom_errorbar(data = pimaConSd, 
+                aes(x = TSF, ymin = low, ymax = high, 
+                    col = Scenario),
+                position = position_dodge(0.75),
+                alpha = 0.5)
+
+```
+
+## white spruce
+
+```{r}
+ModHeight %>%
+  filter(species == "Pigl") %>%
+  ggplot() +
+    geom_line(aes(x = TSF, y = height, 
+color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, fill = Scenario), alpha = 0.3)+ geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)", y = "Av. Height (m)",
+         title = "White Spruce") + xlim(c(0,50)) +
+  ylim(c(-2.5,10)) +   
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) 
+
+```
+
+# Plot DBH
+
+## birch
+
+```{r}
+beneMod <- Model %>%
+  filter(Variable == "DBH") %>%
+  filter(species == "Bene")
+
+beneCon <- conwayDBHSite %>%
+  filter(species == "Bene")
+
+ggplot(beneMod) +
+    geom_line(aes(x = TSF, y = mean, color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, fill = Scenario), 
+                alpha = 0.3) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)", y = "Av DBH",
+         title ="Birch") + xlim(c(0,50)) + 
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) +
+  geom_point(data = beneCon, aes(x = TSF, y = mean, 
+                                 col = Scenario,
+                                 shape = Scenario),
+             alpha = 0.4) +
+  geom_errorbar(data = beneCon, 
+                aes(x = TSF, ymin = low, ymax = high, 
+                    col = Scenario),
+                position = position_dodge(0.75),
+                alpha = 0.5) 
+```
+
+## aspen
+
+```{r}
+potrMod <- Model %>%
+filter(Variable == "DBH") %>%
+  filter(species == "Potr")
+
+potrCon <- conwayHeightSite %>%
+  filter(species == "Potr")
+
+ggplot(potrMod) +
+    geom_line(aes(x = TSF, y = mean, color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, fill = Scenario), 
+                alpha = 0.3) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)", y = "Av. DBH",
+         title ="Aspen") + xlim(c(0,50)) + 
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) +
+  geom_point(data = potrCon, aes(x = TSF, y = mean, 
+                                 col = Scenario,
+                                 shape = Scenario),
+             alpha = 0.4) +
+  geom_errorbar(data = potrCon, 
+                aes(x = TSF, ymin = low, ymax = high, 
+                    col = Scenario),
+                position = position_dodge(0.75),
+                alpha = 0.5)
+```
+
+## spruce
+
+```{r spruce plot}
+pimaMod <- Model %>%
+filter(Variable == "DBH") %>%
+  filter(species == "Pima")
+
+pimaCon <- conwayHeightSite %>%
+  filter(species == "Pima")
+
+ggplot(pimaMod) +
+    geom_line(aes(x = TSF, y = mean, color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, fill = Scenario), 
+                alpha = 0.3) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)", y = "Av. DBH",
+         title = "Black Spruce") + xlim(c(0,50)) + 
+  ylim(c(-2.5, 10)) +
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) +
+  geom_point(data = pimaCon, aes(x = TSF, y = mean, 
+                                 col = Scenario,
+                                 shape = Scenario),
+             alpha = 0.4) +
+  geom_errorbar(data = pimaCon, 
+                aes(x = TSF, ymin = low, ymax = high, 
+                    col = Scenario),
+                position = position_dodge(0.75),
+                alpha = 0.5)
+
+```
+
+## white spruce
+
+```{r}
+Model %>%
+filter(Variable == "DBH") %>%
+  filter(species == "Pigl") %>%
+  ggplot() +
+    geom_line(aes(x = TSF, y = mean, 
+color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, fill = Scenario), alpha = 0.3)+ geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)", y = "Av. Height (m)",
+         title = "White Spruce") + xlim(c(0,50)) +
+  ylim(c(-2.5,10)) +   
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) 
+
+```
+
+```{r}
+bene <- ggplot(beneMod) +
+    geom_line(aes(x = TSF, y = mean,
+                  color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, 
+                    fill = Scenario), 
+                alpha = 0.3) +
+  geom_hline(yintercept = 0,
+             linetype = "dashed") + 
+    labs(x = "Time since fire (years)",
+         y = "Av. DBH",
+         title ="Birch") + xlim(c(0,50)) + 
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) +
+  geom_point(data = beneCon, aes(x = TSF, y = mean, 
+                                 col = Scenario,
+                                 shape = Scenario),
+             alpha = 0.4, size = 2) +
+  geom_errorbar(data = beneCon, 
+                aes(x = TSF, ymin = low, ymax = high, 
+                    col = Scenario),
+                position = position_dodge(0.75),
+                alpha = 0.5) 
+  theme(legend.position = "none",
+        title = element_text(size = 25),
+        axis.title = element_text(size = 20),
+        axis.text.y = element_text(size = 15),
+        axis.text.x = element_text(size = 15))
+
+potr <- ggplot(potrMod) +
+    geom_line(aes(x = TSF, y = mean, color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, fill = Scenario), 
+                alpha = 0.3) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)",
+         y = "Av. DBH",
+         title ="Aspen") + xlim(c(0,50)) + 
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) +
+  geom_point(data = potrCon, 
+             aes(x = TSF, y = mean,
+                 col = Scenario,
+                 shape = Scenario),
+             alpha = 0.4, size = 2) +
+  geom_errorbar(data = potrConSd, 
+                aes(x = TSF, 
+                    ymin = low, ymax = high, 
+                    col = Scenario),
+                position = position_dodge(0.75),
+                alpha = 0.5) + 
+  ylim(c(-2.5, 15)) + 
+  theme(legend.position = "none",
+        title = element_text(size = 25),
+        axis.title = element_text(size = 20),
+        axis.text.y = element_text(size = 15),
+        axis.text.x = element_text(size = 15))
+bene
+
+pima <- ggplot(pimaMod) +
+    geom_line(aes(x = TSF, y = height, color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, fill = Scenario), 
+                alpha = 0.3) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)", y = "Av. Height (m)",
+         title = "Black Spruce") + xlim(c(0,50)) + 
+  ylim(c(-2.5, 10)) +
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) +
+  geom_point(data = pimaCon, aes(x = TSF, y = mean, 
+                                 col = Scenario,
+                                 shape = Scenario),
+             alpha = 0.4, size = 2) +
+  geom_errorbar(data = pimaCon, 
+                aes(x = TSF, ymin = low, ymax = high, 
+                    col = Scenario),
+                position = position_dodge(0.75),
+                alpha = 0.5) + theme(legend.position = "none",
+        title = element_text(size = 25),
+        axis.title = element_text(size = 20),
+        axis.text.y = element_text(size = 15),
+        axis.text.x = element_text(size = 15))
+
+pigl <- ModHeight %>%
+  filter(species == "Pigl") %>%
+  ggplot() +
+    geom_line(aes(x = TSF, y = height, 
+color = Scenario)) +
+    geom_ribbon(aes(x = TSF, ymin = low, 
+                    ymax = high, fill = Scenario), alpha = 0.3)+ geom_hline(yintercept = 0, linetype = "dashed") + 
+    labs(x = "Time since fire (years)",
+         y = "Av. Height (m)",
+         title = "White Spruce") + xlim(c(0,50)) +
+  ylim(c(-2.5,10)) +   
+  scale_color_manual(values = c("#a6611a", "#018571")) + 
+  scale_fill_manual(values = c("#a6611a", "#018571")) + 
+  theme(legend.position = "none",
+        title = element_text(size = 25),
+        axis.title = element_text(size = 20),
+        axis.text.y = element_text(size = 15),
+        axis.text.x = element_text(size = 15))
+
+ggsave2(plot = bene,
+        filename = "AgeGrowth_Birch.png",
+        path = "/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/MooseHare/figures/",
+        width = 6, height = 5, units = "in")
+
+ggsave2(plot = potr,
+        filename = "AgeGrowth_Potr.png",
+        path = "/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/MooseHare/figures/",
+        width = 6, height = 5, units = "in")
+ggsave2(plot = pima,
+        filename = "AgeGrowth_Pima.png",
+        path = "/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/MooseHare/figures/",
+        width = 6, height = 5, units = "in")
+
+ggsave2(plot = pigl,
+        filename = "AgeGrowth_Pigl.png",
+        path = "/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/MooseHare/figures/",
+        width = 6, height = 5, units = "in")
+>>>>>>> 2b15cb8159ec54b72351a0977f7b53b4186f66f2
 ```
