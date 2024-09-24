@@ -18,10 +18,15 @@ theme_set(theme_cowplot())
 ## load model height
 
 ```{r}
-Model <- read.csv("data/output/height.csv")
+ModelMoose <- read.csv("data/model output/Moose.csv")
+ModelNoMoose <- read.csv("data/model output/NoMoose.csv")
+
+Model <- full_join(ModelMoose, ModelNoMoose)
 
 Model <- Model %>%
   mutate(Data = "Model")
+
+rm(ModelMoose, ModelNoMoose)
 
 kable(head(Model))
 ```
@@ -31,7 +36,7 @@ kable(head(Model))
 ## process conway
 
 ```{r Conway loading}
-conwayIndividRaw <- read.csv("data/benchmarking/stand/Conway/Conway_Exclosure.csv")
+conwayIndividRaw <- read.csv("data/Exclosure_Final.csv")
 
 colnames(conwayIndividRaw)
 
@@ -40,8 +45,10 @@ summary(conwayIndividRaw)
 kable(head(conwayIndividRaw))
 ```
 
-```{r Conway cleaning}
+## height
+```{r}
 #| warning: false
+#| label: conway Height
 conwayHeight <- conwayIndividRaw %>%
   select(Site, Treatment, Species, IndTag, Height2013, Height2014,
          Height2015, Height2017) %>%
@@ -70,6 +77,81 @@ kable(head(conwayHeight))
 
 # rename species to match
 conwayHeight <- conwayHeight %>%
+  mutate(species = ifelse(Species == "aspen", "Potr",
+                       ifelse(Species == "birch", "Bene",
+                              "Pima")))
+```
+
+## basal
+```{r}
+#| warning: false
+#| label: conway Basal
+conwayBasal <- conwayIndividRaw %>%
+  select(Site, Treatment, Species, IndTag, 
+         Basal2013, Basal2014,
+         Basal2015, Basal2017) %>%
+  mutate(Basal2014 = as.numeric(Basal2014), # omit NAs
+         Basal2015 = as.numeric(Basal2015),
+         Basal2017 = as.numeric(Basal2017)) %>%
+  pivot_longer(cols = c(Basal2013, Basal2015, 
+                        Basal2014, Basal2017),
+               names_to = "Year", values_to = "Basal") %>%
+  mutate(Year = ifelse(Year == "Basal2014", 2014,
+                       ifelse(Year == "Basal2015", 2015,
+                              ifelse(Year == "Basal2013", 2013,
+                                     ifelse(Year == "Basal2017",
+                                            2017, NA))))) %>%
+  mutate(TSF = Year - 2005) %>% # calculate TSF
+  mutate(Scenario = ifelse(Treatment == "Control", 
+                            "Browsing", "No Browsing")) %>%
+  ungroup() %>%
+  drop_na(Basal) %>%
+  select(!c(IndTag, Year))
+
+summary(conwayBasal)
+
+kable(head(conwayBasal))
+
+# rename species to match
+conwayBasal <- conwayBasal %>%
+  mutate(species = ifelse(Species == "aspen", "Potr",
+                       ifelse(Species == "birch", "Bene",
+                              "Pima")))
+```
+
+## DBH
+```{r}
+#| warning: false
+#| label: conway DBH
+conwayDBH <- conwayIndividRaw %>%
+  select(Site, Treatment, Species, IndTag, 
+         DBH2013, DBH2014,
+         DBH2015, DBH2017) %>%
+  mutate(DBH2014 = as.numeric(DBH2014), # omit NAs
+                                          
+         DBH2015 = as.numeric(DBH2015),
+         DBH2017 = as.numeric(DBH2017)) %>%
+  pivot_longer(cols = c(DBH2013, DBH2015, 
+                        DBH2014, DBH2017),
+               names_to = "Year", values_to = "DBH") %>%
+  mutate(Year = ifelse(Year == "DBH2014", 2014,
+                       ifelse(Year == "DBH2015", 2015,
+                              ifelse(Year == "DBH2013", 2013,
+                                     ifelse(Year == "DBH2017",
+                                            2017, NA))))) %>%
+  mutate(TSF = Year - 2005) %>% # calculate TSF
+  mutate(Scenario = ifelse(Treatment == "Control", 
+                            "Browsing", "No Browsing")) %>%
+  ungroup() %>%
+  drop_na(DBH) %>%
+  select(!c(IndTag, Year))
+
+summary(conwayDBH)
+
+kable(head(conwayDBH))
+
+# rename species to match
+conwayDBH <- conwayDBH %>%
   mutate(species = ifelse(Species == "aspen", "Potr",
                        ifelse(Species == "birch", "Bene",
                               "Pima")))
