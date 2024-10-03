@@ -18,7 +18,7 @@ theme_set(theme_cowplot())
 ## load model height
 
 ```{r}
-model <- read.csv("/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/ConwayAgeGrowth/data/model_data.csv")
+model <- read.csv("/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/ConwayAgeGrowth/data/model output/model_data.csv")
 
 model = model %>%
   mutate(Data = "Model") %>%
