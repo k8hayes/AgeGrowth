@@ -3,6 +3,7 @@ title: "AgeGrowth Modeling Output"
 format: html
 editor: visual
 ---
+
 # Set up
 
 ```{r}
@@ -14,7 +15,7 @@ library(kableExtra)
 library(terra)
 theme_set(theme_cowplot())
 
-```   
+```
 
 # Processing no moose output
 
@@ -35,6 +36,7 @@ db.connNM <- DBI::dbConnect(RSQLite::SQLite(),
 ```
 
 ## filtering by fire severity
+
 ```{r}
 burnedArea <- subst(fireMapNM, 0, NA, others = 1)
 
@@ -149,6 +151,7 @@ saplingdetNMhs = saplingdetNMhs %>%
 ```
 
 ## merging stand and sapling
+
 ```{r}
 
 # | label: merging stand and sapling NM
@@ -205,6 +208,7 @@ db.connM <- DBI::dbConnect(RSQLite::SQLite(),
 ```
 
 ## filtering by fire severity
+
 ```{r}
 burnedArea <- subst(fireMapM, 0, NA, others = 1)
 
@@ -319,6 +323,7 @@ saplingdetMhs = saplingdetMhs %>%
 ```
 
 ## merging stand and sapling
+
 ```{r}
 
 # | label: merging stand and sapling NM
