@@ -166,7 +166,7 @@ bene = ggplot(beneMod) +
   geom_point(data = beneCon, aes(x = TSF, y = mean, 
                                  col = Scenario,
                                  shape = Scenario),
-             alpha = 0.4, size = 3) + ylim(c(-0.1, 4.5)) +
+             alpha = 0.4, size = 3) + ylim(c(-0.5, 18)) +
   theme(legend.position = "none",
         title = element_text(size = 25),
         axis.title = element_text(size = 20),
@@ -186,7 +186,7 @@ potr = ggplot(potrMod) +
   geom_point(data = potrCon, aes(x = TSF, y = mean, 
                                  col = Scenario,
                                  shape = Scenario),
-             alpha = 0.4, size = 3)  + ylim(c(-0.1, 5)) +
+             alpha = 0.4, size = 3)  + ylim(c(-0.5, 18)) +
   theme(legend.position = "none",
         title = element_text(size = 25),
         axis.title = element_text(size = 20),
@@ -206,7 +206,7 @@ pima = ggplot(pimaMod) +
   geom_point(data = pimaCon, aes(x = TSF, y = mean, 
                                  col = Scenario,
                                  shape = Scenario),
-             alpha = 0.4, size = 3) + ylim(c(-0.1, 5)) +
+             alpha = 0.4, size = 3) + ylim(c(-0.5, 5)) +
   theme(title = element_text(size = 25),
         axis.title = element_text(size = 20),
         axis.text.y = element_text(size = 15),
@@ -214,7 +214,7 @@ pima = ggplot(pimaMod) +
         legend.title = element_text(size = 15))
 
 grid <- plot_grid(bene, potr, pima,
-          nrow = 1, ncol = 3, rel_widths = c(1,1,1.3))
+          nrow = 1, ncol = 3, rel_widths = c(1,1,1.1))
 grid
 
 ggsave2(plot = grid,
