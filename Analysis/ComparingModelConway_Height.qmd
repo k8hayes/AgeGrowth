@@ -29,7 +29,7 @@ model %>%
   ggplot(aes(x = TSF, y = mean, col = Scenario)) + geom_point()
 ```
 
-# Conway
+## load Conway
 
 ```{r Conway loading}
 conway <- read.csv("/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/ConwayAgeGrowth/data/Conway_data.csv")
@@ -48,7 +48,7 @@ beneMod <- model %>%
 
 beneCon <- conway %>%
   filter(species == "Bene") %>%
-  filter(Variable == "Height")
+  filter(variable == "height")
 
 ggplot(beneMod) +
     geom_line(aes(x = TSF, y = mean, color = Scenario)) +
