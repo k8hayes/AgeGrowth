@@ -15,7 +15,7 @@ library(kableExtra)
 theme_set(theme_cowplot())
 ```
 
-## process conway
+# load conway
 ```{r}
 #| label: loading conway
 conwayIndividRaw <- read.csv("/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/ConwayAgeGrowth/data/Conway_Exclosure.csv")
@@ -26,25 +26,6 @@ summary(conwayIndividRaw)
 
 kable(head(conwayIndividRaw))
 ```
-
-## adding new data
-```{r}
-#| label: loading new data
-new <- read.csv("data/BF_Resample2024.csv")
-
-summary(new)
-
-new_process = new %>%
-  group_by(site, species) %>%
-  summarise(count_below_dbh = sum(count_below_dbh),
-            dbh = mean(tree_1_dbh_cm),
-            basal = mean(tree_1_basal_cm)) %>%
-  ungroup() %>%
-  mutate(species = ifelse(species == "betneo", "bene",
-                      ifelse(species == "picmar", "pima", "potr")),
-         year = 2024)
-```
-
 
 ## height
 ```{r Conway cleaning}
