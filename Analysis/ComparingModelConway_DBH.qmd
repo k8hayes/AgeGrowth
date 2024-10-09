@@ -18,7 +18,7 @@ theme_set(theme_cowplot())
 ## load model height
 
 ```{r}
-model <- read.csv("/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/ConwayAgeGrowth/data/model_data.csv")
+model <- read.csv("/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/ConwayAgeGrowth/data/model output/model_data.csv")
 
 model = model %>%
   mutate(Data = "Model") %>%
@@ -33,7 +33,7 @@ model = model %>%
 conway <- read.csv("/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/ConwayAgeGrowth/data/Conway_data.csv")
 
 conway = conway %>%
-  filter(variable == "dbh")
+  filter(variable == "DBH")
 
 ```
 
@@ -55,7 +55,7 @@ ggplot(beneMod) +
                     ymax = high, fill = Scenario), 
                 alpha = 0.3) +
   geom_hline(yintercept = 0, linetype = "dashed") + 
-    labs(x = "Time since fire (years)", y = "Av. Height (m)",
+    labs(x = "Time since fire (years)", y = "Mean DBH",
          title ="Birch")  +
   scale_color_manual(values = c("#a6611a", "#018571")) + 
   scale_fill_manual(values = c("#a6611a", "#018571")) +
@@ -69,12 +69,10 @@ ggplot(beneMod) +
 
 ```{r}
 potrMod <- model %>%
-  filter(species == "Potr") %>%
-  filter(variable == "height")
+  filter(species == "Potr") 
 
 potrCon <- conway %>%
-  filter(species == "Potr") %>%
-  filter(Variable == "Height")
+  filter(species == "Potr") 
 
 ggplot(potrMod) +
     geom_line(aes(x = TSF, y = mean, color = Scenario)) +
@@ -82,7 +80,7 @@ ggplot(potrMod) +
                     ymax = high, fill = Scenario), 
                 alpha = 0.3) +
   geom_hline(yintercept = 0, linetype = "dashed") + 
-    labs(x = "Time since fire (years)", y = "Av. Height (m)",
+    labs(x = "Time since fire (years)", y = "DBH",
          title ="Aspen") + 
   scale_color_manual(values = c("#a6611a", "#018571")) + 
   scale_fill_manual(values = c("#a6611a", "#018571")) +
@@ -96,13 +94,10 @@ ggplot(potrMod) +
 
 ```{r spruce plot}
 pimaMod <- model %>%
-  filter(species == "Pima") %>%
-  filter(variable == "height") %>%
-  filter(TSF >2)
+  filter(species == "Pima") 
 
 pimaCon <- conway %>%
-  filter(species == "Pima") %>%
-  filter(Variable == "Height")
+  filter(species == "Pima") 
 
 ggplot(pimaMod) +
     geom_line(aes(x = TSF, y = mean, color = Scenario)) +
@@ -118,37 +113,8 @@ ggplot(pimaMod) +
                                  col = Scenario,
                                  shape = Scenario),
              alpha = 0.4) 
-
 ```
 
-## white spruce
-
-```{r}
-piglMod <- model %>%
-  filter(species == "Pigl") %>%
-  filter(variable == "height") %>%
-  filter(TSF >2)
-
-piglCon <- conway %>%
-  filter(species == "Pigl") %>%
-  filter(Variable == "Height")
-
-ggplot(piglMod) +
-    geom_line(aes(x = TSF, y = mean, color = Scenario)) +
-    geom_ribbon(aes(x = TSF, ymin = low, 
-                    ymax = high, fill = Scenario), 
-                alpha = 0.3) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-    labs(x = "Time since fire (years)", y = "Av. Height (m)",
-         title = "White Spruce") +
-  scale_color_manual(values = c("#a6611a", "#018571")) + 
-  scale_fill_manual(values = c("#a6611a", "#018571")) +
-  geom_point(data = piglCon, aes(x = TSF, y = mean, 
-                                 col = Scenario,
-                                 shape = Scenario),
-             alpha = 0.4) 
-
-```
 
 # saves
 ```{r}
