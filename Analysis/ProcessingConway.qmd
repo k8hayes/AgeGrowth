@@ -31,9 +31,10 @@ kable(head(conwayIndividRaw))
 ```{r Conway cleaning}
 #| warning: false
 conwayHeight <- conwayIndividRaw %>%
-  select(Site, Treatment, Species, IndTag, Height2013, Height2014,
-         Height2015, Height2017) %>%
-  mutate(Height2014 = as.numeric(Height2014), # omit NAs
+  select(Site, Treatment, Species, IndTag,
+         Height2013, Height2014, Height2015, Height2017) %>%
+  mutate(Height2013 = as.numeric(Height2013),
+         Height2014 = as.numeric(Height2014), # omit NAs
          Height2015 = as.numeric(Height2015),
          Height2017 = as.numeric(Height2017)) %>%
   pivot_longer(cols = c(Height2013, Height2015, 
@@ -66,6 +67,18 @@ conwayHeight <- conwayHeight %>%
 ## DBH
 ```{r Conway cleaning}
 #| warning: false
+
+test = conwayIndividRaw %>%
+  mutate(DBH2013 = ifelse(DBH2013 == "na" & Basal2013 != "na",
+                          round(sqrt(as.numeric(Basal2013) / 0.005454)), DBH2013),
+         DBH2014 = ifelse(DBH2014 == "na" & Basal2014 != "na",
+                          round(sqrt(as.numeric(Basal2014)/ 0.005454)), DBH2014),
+         DBH2015 = ifelse(DBH2015 == "na" & Basal2015 != "na", 
+                          round(sqrt(as.numeric(Basal2015) / 0.005454)), DBH2015))
+
+
+
+
 conwayDBH <- conwayIndividRaw %>%
   select(Site, Treatment, Species, IndTag, DBH2013, DBH2014,
          DBH2015, DBH2017) %>%
