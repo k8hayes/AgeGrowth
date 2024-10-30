@@ -39,7 +39,3 @@ test %>%
   filter(species == "Pima") %>%
   ggplot(aes(x = TSF, y = mean, col = treat)) + geom_point()
 ```
-
-
-
-
