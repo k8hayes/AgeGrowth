@@ -20,6 +20,9 @@ theme_set(theme_cowplot())
 ```{r}
 model <- read.csv("/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/ConwayAgeGrowth/data/model output/model_data.csv")
 
+model = read.csv("/AgeGrowth/data/model output/model_data.csv")
+
+
 model = model %>%
   mutate(Data = "Model") %>%
   filter(TSF < 51)
@@ -34,8 +37,8 @@ model %>%
 ```{r Conway loading}
 conway <- read.csv("/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/ConwayAgeGrowth/data/Conway_data.csv")
 
-conway = conway %>%
-  filter(variable == "height") 
+conway = read.csv("/AgeGrowth/data/Conway_data.csv")
+
 ```
 
 
@@ -49,7 +52,8 @@ beneMod <- model %>%
   filter(variable == "height")
 
 beneCon <- conway %>%
-  filter(species == "Bene") 
+  filter(species == "Bene") %>%
+  filter(variable == "height")
 
 ggplot(beneMod) +
     geom_line(aes(x = TSF, y = mean, color = Scenario)) +
@@ -75,7 +79,8 @@ potrMod <- model %>%
   filter(variable == "height")
 
 potrCon <- conway %>%
-  filter(species == "Potr") 
+  filter(species == "Potr") %>%
+  filter(variable == "height")
 
 ggplot(potrMod) +
     geom_line(aes(x = TSF, y = mean, color = Scenario)) +
@@ -98,10 +103,12 @@ ggplot(potrMod) +
 ```{r spruce plot}
 pimaMod <- model %>%
   filter(species == "Pima") %>%
-  filter(variable == "height") 
+  filter(variable == "height") %>%
+  filter(TSF >2)
 
 pimaCon <- conway %>%
-  filter(species == "Pima") 
+  filter(species == "Pima") %>%
+  filter(variable == "height")
 
 ggplot(pimaMod) +
     geom_line(aes(x = TSF, y = mean, color = Scenario)) +
@@ -125,10 +132,12 @@ ggplot(pimaMod) +
 ```{r}
 piglMod <- model %>%
   filter(species == "Pigl") %>%
-  filter(variable == "height") 
+  filter(variable == "height") %>%
+  filter(TSF >2)
 
 piglCon <- conway %>%
-  filter(species == "Pigl") 
+  filter(species == "Pigl") %>%
+  filter(Variable == "Height")
 
 ggplot(piglMod) +
     geom_line(aes(x = TSF, y = mean, color = Scenario)) +
