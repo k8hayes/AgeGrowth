@@ -14,6 +14,7 @@ head(conway)
 
 # selecting just important variables for height
 conwayHeight <- conway %>%
+  filter(Site != "BF82") %>%
   select(Site, SiteTreatment, Treatment,
          Species, TAG, IndTag, Height2013, Height2014,
          Height2015, Height2017) %>%
@@ -23,10 +24,7 @@ conwayHeight <- conway %>%
          Height2017 = as.numeric(Height2017))
 
 # What is the mean canopy height per site at year 2013?
-conwayHeight %>%
-  group_by(Site) %>%
-  summarise(mean = mean(Height2013))
-
+maxHeight = read.csv("data/ConwayMaxHeight.csv")
 
 # NOTE 
 # Sometimes height values are NA
@@ -39,8 +37,8 @@ naTags <- conwayHeight %>%
   select(IndTag)
 
 conwayHeight = conwayHeight %>% # taking out trees that were na in 2014 - 2017
-  filter(!IndTag %in% c("BF76EBS4", "BF82CPB6", 
-                     "BF84ETA9", "BF82CTA15",
+  filter(!IndTag %in% c("BF76EBS4", 
+                     "BF84ETA9",
                      "BF72CTA2"))
 
 test <- conwayHeight %>%
@@ -77,304 +75,129 @@ growthRate <- growthRate_piv %>%
   select(Site, Treatment, Species, rate) %>%
   drop_na(rate) %>%
   mutate(Species = ifelse(Species == "aspen", "Aspen",
-                          ifelse(Species == "birch", "Birch", "Spruce")))
+                          ifelse(Species == "birch", "Birch", "Black Spruce")))
+
+
+rm(test, test_pivot, naTags, conway, growthRate_piv)
+
+
+growthRate = growthRate %>%
+  mutate(Label = ifelse(Site == "BF72" & Species == "Aspen", # Site BF72
+                        "Av. Initial Height = 200cm", 
+                 ifelse(Site == "BF72" & Species == "Birch",
+                        "Av. Initial Height = 182cm", 
+                 ifelse(Site == "BF72" & Species == "Black Spruce",
+                         "Av. Initial Height = 46cm",
+                          ifelse(Site == "BF76" & Species == "Aspen", # Site BF76
+                                 "Av. Initial Height = 234cm", 
+                          ifelse(Site == "BF76" & Species == "Birch",
+                                 "Av. Initial Height = 330cm", 
+                           ifelse(Site == "BF76" & Species == "Black Spruce",
+                                  "Av. Initial Height = 69cm",
+                                   ifelse(Site == "BF79" & Species == "Aspen", # Site BF79
+                                          "Av. Initial Height = 116cm", 
+                                   ifelse(Site == "BF79" & Species == "Birch", 
+                                          "Av. Initial Height = 175cm", 
+                                   ifelse(Site == "BF79" & Species == "Black Spruce",
+                                          "Av. Initial Height = 56cm",
+                                          ifelse(Site == "BF84" & Species == "Aspen", # Site BF84
+                                                 "Av. Initial Height = 100cm", 
+                                          ifelse(Site == "BF84" & Species == "Birch", 
+                                                 "Av. Initial Height = 135cm", 
+                                          ifelse(Site == "BF84" & Species == "Black Spruce",
+                                                  "Av. Initial Height = 54cm",
+                                                  ifelse(Site == "BF86" & Species == "Aspen", # Site BF86
+                                                          "Av. Initial Height = 122cm", 
+                                                  ifelse(Site == "BF86" & Species == "Birch", 
+                                                         "Av. Initial Height = 251cm", "Av. Initial Height = 74cm")))))))))))))))
+
 
 # Plot Birch ######################
 
-BF76_birch <- growthRate %>%
-  filter(Site == "BF76") %>%
-  filter(Species == "Birch") %>%
+BF72 = growthRate %>%
+  filter(Site == "BF72") %>%
   ggplot(aes(x = as.factor(Treatment), y = rate, color = Species)) + 
+  facet_wrap(~Species+Label) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
+             alpha=0.2, size = 1) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  labs(y = "Growth Rate (cm/year)", x ="",
+       title = "Site BF72") +
+  ylim(-50, 100) + theme(legend.position = "none", 
+                         axis.title.x=element_blank(),
+                         axis.text.x=element_blank(),
+                         axis.ticks.x=element_blank()) + 
+  scale_color_manual(values = c("black", "black", "black"))
+
+BF76 = growthRate %>%
+  filter(Site == "BF76") %>%
+  ggplot(aes(x = as.factor(Treatment), y = rate, color = Species)) + 
+  facet_wrap(~Species+Label) + 
+  geom_boxplot(outlier.shape = NA) +
     geom_point(position = position_jitterdodge(dodge.width = 0.8), 
                alpha=0.2, size = 1) +
     geom_boxplot(outlier.shape = NA) +
   geom_hline(yintercept = 0, linetype = "dashed") + 
   labs(y = "Growth Rate (cm/year)", x ="",
-       title = "Site BF76",
-       subtitle = "Average starting canopy height = 108 cm") +
+       title = "Site BF76") +
   ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF76_birch         
+  scale_color_manual(values = c("black", "black", "black"))
 
-BF86_birch <- growthRate %>%
-  filter(Site == "BF86") %>%
-  filter(Species == "Birch") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha = 0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "Average starting canopy height = 108 cm",
-       title = "Site BF86",
-       x = "", y = "Growth Rate (cm/year)")  + theme(legend.position = "none") +
-  ylim(-50, 100)        + 
-  scale_color_manual(values = "black")
-BF86_birch
-
-BF72_birch <- growthRate %>%
-  filter(Site == "BF72") %>%
-  filter(Species == "Birch") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha=0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "Average starting canopy height = 108 cm",
-       title = "Site BF72",
-       x = "", y = "Growth Rate (cm/year)")  +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF72_birch
-
-BF79_birch <- growthRate %>%
+BF79 = growthRate %>%
   filter(Site == "BF79") %>%
-  filter(Species == "Birch") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha=0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "Average starting canopy height = 108 cm",
-       title = "Site BF79",
-       x = "", y = "Growth Rate (cm/year)")   +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF79_birch
-
-BF84_birch <- growthRate %>%
-  filter(Site == "BF84") %>%
-  filter(Species == "Birch") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha=0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "Average starting canopy height = 108 cm",
-       title = "Site BF84",
-       x = "", y = "Growth Rate (cm/year)")   +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF84_birch
-
-plot_birch <- plot_grid(BF84_birch, BF79_birch, BF72_birch, BF86_birch, BF76_birch,
-          nrow = 5)
-plot_birch
-
-ggsave2(plot = plot_birch,
-        filename = "birch.png",
-        path = "figures/growthRate/",
-        width = 4, height = 18, units = "in")
-
-# Plot aspen #########################
-
-BF76_aspen <- growthRate %>%
-  filter(Site == "BF76") %>%
-  filter(Species == "Aspen") %>%
   ggplot(aes(x = as.factor(Treatment), y = rate, color = Species)) + 
+  facet_wrap(~Species+Label) + 
+  geom_boxplot(outlier.shape = NA) +
   geom_point(position = position_jitterdodge(dodge.width = 0.8), 
              alpha=0.2, size = 1) +
   geom_boxplot(outlier.shape = NA) +
   geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(y = "", x =" ",
-       title = " ",
-       subtitle = "") +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF76_aspen        
+  labs(y = "Growth Rate (cm/year)", x ="",
+       title = "Site BF79") +
+  ylim(-50, 100) + theme(legend.position = "none",
+                         axis.title.x=element_blank(),
+                         axis.text.x=element_blank(),
+                         axis.ticks.x=element_blank()) + 
+  scale_color_manual(values = c("black", "black", "black"))
 
-BF86_aspen <- growthRate %>%
-  filter(Site == "BF86") %>%
-  filter(Species == "Aspen") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha = 0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "",
-       title = " ",
-       x = "", y = " ")  + theme(legend.position = "none") +
-  ylim(-50, 100)        + 
-  scale_color_manual(values = "black")
-BF86_aspen
-
-BF72_aspen <- growthRate %>%
-  filter(Site == "BF72") %>%
-  filter(Species == "Aspen") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha=0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "",
-       title = " ",
-       x = "", y = "")  +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF72_aspen
-
-BF79_aspen <- growthRate %>%
-  filter(Site == "BF79") %>%
-  filter(Species == "Aspen") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha=0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "",
-       title = " ",
-       x = "", y = "")   +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF79_aspen
-
-BF84_aspen <- growthRate %>%
+BF84 = growthRate %>%
   filter(Site == "BF84") %>%
-  filter(Species == "Aspen") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha=0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = " ",
-       title = " ",
-       x = "", y = " ")   +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF84_aspen
-
-BF82_aspen <- growthRate %>%
-  filter(Site == "BF82") %>%
-  filter(Species == "Aspen") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha=0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "",
-       title = " ",
-       x = "", y = "")   +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF82_aspen
-
-plot_aspen <- plot_grid(BF84_aspen, BF79_aspen, BF72_aspen, BF86_aspen, BF76_aspen,
-                        nrow = 5)
-plot_aspen
-
-ggsave2(plot = plot_aspen,
-        filename = "aspen.png",
-        path = "figures/growthRate/",
-        width = 4, height = 18, units = "in")   
-
-# Plot spruce #########################
-
-BF76_spruce <- growthRate %>%
-  filter(Site == "BF76") %>%
-  filter(Species == "Spruce") %>%
   ggplot(aes(x = as.factor(Treatment), y = rate, color = Species)) + 
+  facet_wrap(~Species+Label) + 
+  geom_boxplot(outlier.shape = NA) +
   geom_point(position = position_jitterdodge(dodge.width = 0.8), 
              alpha=0.2, size = 1) +
   geom_boxplot(outlier.shape = NA) +
   geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(y = "", x =" ",
-       title = " ",
-       subtitle = "") +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF76_spruce        
+  labs(y = "Growth Rate (cm/year)", x ="",
+       title = "Site BF84") +
+  ylim(-50, 100) + theme(legend.position = "none",axis.title.x=element_blank(),
+                         axis.text.x=element_blank(),
+                         axis.ticks.x=element_blank()) + 
+  scale_color_manual(values = c("black", "black", "black"))
 
-BF86_spruce <- growthRate %>%
+BF86 = growthRate %>%
   filter(Site == "BF86") %>%
-  filter(Species == "Spruce") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha = 0.2, size = 1) +
+  ggplot(aes(x = as.factor(Treatment), y = rate, color = Species)) + 
+  facet_wrap(~Species+Label) + 
   geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "",
-       title = " ",
-       x = "", y = " ")  + theme(legend.position = "none") +
-  ylim(-50, 100)        + 
-  scale_color_manual(values = "black")
-BF86_spruce
-
-BF72_spruce <- growthRate %>%
-  filter(Site == "BF72") %>%
-  filter(Species == "Spruce") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
   geom_point(position = position_jitterdodge(dodge.width = 0.8), 
              alpha=0.2, size = 1) +
   geom_boxplot(outlier.shape = NA) +
   geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "",
-       title = " ",
-       x = "", y = "")  +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF72_spruce
+  labs(y = "Growth Rate (cm/year)", x ="",
+       title = "Site BF86") +
+  ylim(-50, 100) + theme(legend.position = "none",
+                         axis.title.x=element_blank(),
+                         axis.text.x=element_blank(),
+                         axis.ticks.x=element_blank()) + 
+  scale_color_manual(values = c("black", "black", "black"))
 
-BF79_spruce <- growthRate %>%
-  filter(Site == "BF79") %>%
-  filter(Species == "Spruce") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha=0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "",
-       title = " ",
-       x = "", y = "")   +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF79_spruce
-
-BF84_spruce <- growthRate %>%
-  filter(Site == "BF84") %>%
-  filter(Species == "Spruce") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha=0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = " ",
-       title = " ",
-       x = "", y = " ")   +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF84_spruce
-
-BF82_spruce <- growthRate %>%
-  filter(Site == "BF82") %>%
-  filter(Species == "Spruce") %>%
-  ggplot(aes(x = as.factor(Treatment), y = rate, col = Species)) + 
-  geom_point(position = position_jitterdodge(dodge.width = 0.8), 
-             alpha=0.2, size = 1) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_hline(yintercept = 0, linetype = "dashed") + 
-  labs(subtitle = "",
-       title = " ",
-       x = "", y = "")   +
-  ylim(-50, 100) + theme(legend.position = "none") + 
-  scale_color_manual(values = "black")
-BF82_spruce
-
-plot_spruce <- plot_grid(BF84_spruce, BF79_spruce, BF72_spruce, BF86_spruce, BF76_spruce,
+plot <- plot_grid(BF84, BF79, BF72, BF86, BF76,
                         nrow = 5)
-plot_spruce
-
-ggsave2(plot = plot_spruce,
-        filename = "spruce.png",
+ggsave2(plot = plot,
+        filename = "growthRate.png",
         path = "figures/growthRate/",
-        width = 4, height = 18, units = "in")         
-
-# plot grid
-
-all <- plot_grid(plot_birch, plot_aspen, plot_spruce,
-          ncol = 3)
-
-all
-
-ggsave2(plot = all,
-        filename = "all.png",
-        path = "figures/growthRate/",
-        width = 12, height = 18, units = "in")
+        width = 12, height = 20, units = "in")
