@@ -84,7 +84,7 @@ bene = ggplot(beneMod) +
                                  col = Scenario,
                                  shape = Scenario),
              alpha = 0.4) + 
-  xlim(c(0,50)) + theme(legend.position="none")
+  xlim(c(0,50)) + ylim(c(0,15)) + theme(legend.position="none")
 bene
 ```
 
@@ -115,7 +115,7 @@ potr = ggplot(potrMod) +
                                  col = Scenario,
                                  shape = Scenario),
              alpha = 0.4)  +
-  xlim(c(0,50)) + theme(legend.position="none")
+  xlim(c(0,50)) +ylim(c(0,15)) +  theme(legend.position="none")
 potr
 ```
 
