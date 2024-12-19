@@ -47,11 +47,11 @@ conwayHeight <- conwayIndividRaw %>%
                                      ifelse(Year == "Height2017",
                                             2017, NA))))) %>%
   mutate(TSF = year - 2005) %>% # calculate TSF
-  mutate(height = Height * 100) %>% # transform height from 
+  mutate(height_m = Height / 100) %>% # transform height from 
   mutate(Scenario = ifelse(Treatment == "Control", 
                             "Browsing", "No Browsing")) %>%
   ungroup() %>%
-  drop_na(height) %>%
+  drop_na(height_m) %>%
   select(!c(IndTag, Year))
 
 summary(conwayHeight)
@@ -142,18 +142,31 @@ conwayBasal <- conwayBasal %>%
                               "Pima")))
 ```
 
+# Height maximums
+````{r}
+
+conwayHeightMax<- conwayHeight %>%
+  filter(TSF == 8) %>%
+  group_by(Site, species) %>%
+  summarise(max = max(height_m)*100)
+
+write.csv(conwayHeightMax, "/Users/katherinehayes/Google Drive/Projects/NSF Postdoc/Manuscripts/ConwayAgeGrowth/data/ConwayMaxHeight.csv", row.names = FALSE)
+
+````
+
+
 # Site averages
 
 ```{r conway site avs}
 conwayHeightSite <- conwayHeight %>%
   group_by(Scenario, TSF, Site, species) %>%
-  summarise(mean = mean(height),
-            sd = sd(height, na.rm = TRUE)) %>%
+  summarise(mean = mean(height_m),
+            sd = sd(height_m, na.rm = TRUE)) %>%
   mutate(mean = round(mean, 2),
          low = sd - mean,
          high = sd + mean) %>%
   mutate(Data = "Field",
-         variable = "height")
+         variable = "height_m")
 
 conwayDBHSite <- conwayDBH %>%
   group_by(Scenario, TSF, Site, species) %>%
